@@ -1,12 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+@font-face {
+    font-family: 'Kaushan Script';
+    src: url('../../fonts/KaushanScript-Regular.woff2') format('woff2'),
+         url('../../fonts/KaushanScript-Regular.woff') format('woff'),
+         url('../../fonts/KaushanScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body{
     color: #ffffff;
     background: linear-gradient(rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.747)), url('../images/vec.jpg');
     background-size: cover;
 }
-.navbar-brand img{
-    height: 50px;
-    width: 100px;
+
+.h2 {
+    font-family: 'Kaushan Script', cursive;
+    font-style: italic
 }
+
+
 
 .nav-link{
     color: #fff;
@@ -24,7 +38,7 @@ body{
 
 #outer {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     display: flex;
 }
   
@@ -33,74 +47,68 @@ body{
 }
 
 .container{
-    line-height: 0.2; 
-    letter-spacing: 0.001em;
+    line-height: 0.6; 
+    letter-spacing: 0.002em;
 } 
 .container p{
     margin: auto;
-    margin-left: 160px;
+    margin-left: 120px;
     color: #ffffff;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.4em;
+    font-size: 13px;
 }
 
 span{
-    margin-left: 140px;
+    margin-left: 120px;
 }
 .container h1{
     color: #ffffff;
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 700;
+} 
+
+.search{
+    margin-top: -50px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+         
 }
 
-.domain-form .form-group{
-    margin-top: -100px;
-}  
-
-.domain-form .form-group {
-    margin-left: 180px;
-    border: 1px solid #353b5c;
-    padding: 20px;
-    width: 60%;
+.search input{
+    height: 60px;
+    text-indent: 25px;
+    border: 1px solid #d6d4d4;
 }
 
-.domain-form .form-group input {
-    height: 70px !important;
-    border: transparent;
-    border-radius: 40px;
+.search input:focus{
+    box-shadow: none;
+    border: 1px solid rgb(39, 39, 78);
 }
-    
-.form-control {
-    height: 52px !important;
-    width: 100%;
-    background: #fff !important;
-    color: #3a4348 !important;
-    font-size: 18px;
+
+.search .fa-search{
+    position: absolute;
+    top: 20px;
+    left: 16px;
+}
+
+.search button{
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 110px;
+    background: rgb(28, 28, 46);
+    border: 1px solid white;
     border-radius: 20px;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
-    
-.px-4{
-    padding-left: 1rem !important;
-}
-    
-.domain-form .form-group .search-domain {
-    background: #1e2130;
-    border: 2px solid #1e2130;
-    border-radius: 25px;
-    color: #fff;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    border-radius: 100px;
-}
-    
-.domain-price span {
-    color: #3a4348;
-    margin: 0 10px;
-}
-    
-.domain-price span small {
-    color: #16161d;
 }
 
+.search button:hover{
+    color:white;
+    background-color: #393b42;
+    transition: 1.5s;
+}
+
+::placeholder{
+    letter-spacing: 0.3em;
+}

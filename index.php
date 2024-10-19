@@ -18,7 +18,8 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="#"><img src="assets/images/logo2.png" alt=""></a>
+            <a class="navbar-brand h2" style="color: white; font-size: 3.5rem;
+                font-weight: bold;" href="#">D-cars</a>
 
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +61,7 @@
             </a>
             </li>
             <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link mx-3" href="#"><svg class="mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
+            <a class="nav-link mx-3" href="admin/register.php"><svg class="mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
             <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="currentColor" stroke-width="1.5" />
             </svg>
@@ -81,31 +82,35 @@
 
 <!-- Texts -->
 <div id="outer" class="container">
-    <div id="inner">
-         <p class="responsive-text">Find car repair shops near you</p>
-         <h1 class="responsive-text">Find Your Perfect Car <br> <span> Repair Shop</span></h1>
+        <div id="inner" class="row">
+            <div class="col-12">
+                <p class="responsive-text">Find car repair shops near you</p>
+                <h1 class="responsive-text">Find Your Perfect Car <br> <span>Repair Shop</span></h1>
+            </div>
+        </div>
     </div>
-</div>
 <!-- Texts -->
 
 <!-- search bar -->
+ <form action="">
 
-<div class="row justify-content-center">
-    <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
-        <form action="#" class="domain-form">
-            <div class="form-group d-md-flex">
-                <input type="text" class="form-control px-2" placeholder="Search here...">
-                <button type="submit" class="search-domain btn btn-primary px-5">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
-                    <path d="M17.5 17.5L22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                </svg>
-                Search
-                </button>
+<div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-8">
+
+            <div class="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" class="form-control" placeholder="Find a shop">
+                <button class="">Search</button>
             </div>
-        </form>
+    
+        </div>
+  
     </div>
 </div>
 
+</form>
 </body>
 </html>
