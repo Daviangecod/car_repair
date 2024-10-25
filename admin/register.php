@@ -10,8 +10,8 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
+    <!-- Registration form -->
     <body class="background">
-      <!-- Registration form -->
       <form action="">
 <section class="p-3 p-md-4 p-xl-3">
   <div class="container">

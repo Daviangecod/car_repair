@@ -11,13 +11,21 @@
 
 body{
     color: #ffffff;
+    
+}
+
+.bg-pages{
+    background-color: #f3ecec;
+}
+
+.bg-image{
     background: linear-gradient(rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.747)), url('../images/vec.jpg');
     background-size: cover;
 }
 
 .h2 {
     font-family: 'Kaushan Script', cursive;
-    font-style: italic
+    font-style: italic;
 }
 
 
@@ -46,11 +54,11 @@ body{
     margin: auto;
 }
 
-.container{
+.text{
     line-height: 0.6; 
     letter-spacing: 0.002em;
 } 
-.container p{
+.text p{
     margin: auto;
     margin-left: 120px;
     color: #ffffff;
@@ -61,7 +69,7 @@ body{
 span{
     margin-left: 120px;
 }
-.container h1{
+.text h1{
     color: #ffffff;
     font-size: 60px;
     font-weight: 700;
@@ -112,3 +120,62 @@ span{
 ::placeholder{
     letter-spacing: 0.3em;
 }
+
+.container{
+    background-color: #fffcfc;
+}
+
+.card.map-card .living-coral {
+    background-color: #fa7268;
+    }
+    
+    .card.map-card .living-coral-text {
+    color: #fa7268;
+    }
+    
+    .card.map-card .table th {
+    width: 2rem;
+    }
+    
+    .card.map-card .pt-3-5 {
+    padding-top: 1.25rem;
+    }
+    
+    .card.map-card .card-body {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    overflow: hidden;
+    background-color: transparent;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+    }
+    
+    .card.map-card .card-body.closed {
+    top: 100%;
+    height: 7.5rem;
+    margin-top: -7.5rem;
+    }
+    
+    .card.map-card .map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    }
+    
+    .card.map-card .map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    }
+    
+    .card.map-card .button .btn-floating {
+    margin-top: -1.5rem;
+    }
