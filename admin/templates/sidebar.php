@@ -17,9 +17,9 @@
                      <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                      Charts
                  </a>
-                 <a class="nav-link text-black" href="tables.html">
+                 <a class="nav-link text-black" href="inventory.php">
                      <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                     Tables
+                     Inventory
                  </a>
 
                  <a class="nav-link text-black" href="tables.html">
