@@ -1,10 +1,10 @@
-<?php require('./templates/header.tpl') ?>
+<?php require('./templates/header.php') ?>
 
-<?php require('./templates/navbar.tpl') ?>
+<?php require('./templates/navbar.php') ?>
 
 <div id="layoutSidenav">
 
-    <?php require('./templates/sidebar.tpl') ?>
+    <?php require('./templates/sidebar.php') ?>
 
     <div id="layoutSidenav_content">
         <main>
@@ -561,8 +561,8 @@
                 </div>
             </div>
         </main>
-        <?php require('./templates/copyright.tpl') ?>
+        <?php require('./templates/copyright.php') ?>
     </div>
 </div>
 
-<?php require('./templates/footer.tpl') ?>
+<?php require('./templates/footer.php') ?>
