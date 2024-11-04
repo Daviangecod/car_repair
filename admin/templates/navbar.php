@@ -1,4 +1,4 @@
-<nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-white">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">
                <img src="<?= baseUrl('assets/logo.svg') ?>" alt="Logo" class="img-fluid" style="width:150px" />
