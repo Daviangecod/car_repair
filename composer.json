@@ -2,9 +2,9 @@
     "name": "datadavinci/car_repair",
     "description": "A car mechanic locator system",
     "autoload": {
-        "psr-4": {
-            "Datadavinci\\CarRepair\\": "src/"
-        }
+        "files": [
+            "includes/functions.php"
+        ]
     },
     "authors": [
         {
