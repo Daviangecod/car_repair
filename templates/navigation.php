@@ -5,7 +5,7 @@
                 <img src="<?= baseUrl('assets/logo-white.svg') ?>" alt="Logo" class="img-fluid" style="width:150px" />
             </a>
             
-            <nav class="nav flex-column flex-md-row gap-3 text-center text-md-start">
+            <nav class="nav flex-column flex-md-row gap-md-3 text-center text-md-start">
                 <a class="nav-link text-white" aria-current="page" href="">
                         Home
                     </a>
@@ -15,7 +15,7 @@
                         </svg>
                         Register a Store
                     </a>
-                    <a class="btn btn-light rounded-5" href="#">Find Shop</a>
+                    <a class="btn btn-light rounded-5 mt-3 mt-md-0" href="#">Find Shop</a>
                     
                 </nav>
             </div>

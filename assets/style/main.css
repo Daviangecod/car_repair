@@ -6,6 +6,15 @@
     --theme-white: #fff;
 }
 
+@font-face {
+    font-family: "DM Sans";
+    src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
 .main-homepage{
     min-height: calc(100vh - 72px);
 }
@@ -25,6 +34,8 @@
 .bg-main {
     background-image: url('../images/background.jpeg');
     background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .bg-theme-primary {
