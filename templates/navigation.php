@@ -1,11 +1,11 @@
 <header class="py-3 bg-theme-primary">
         
-        <div class="container d-flex flex-column flex-md-row justify-content-md-between text-center text-md-start">
+        <div class="container d-flex flex-column flex-md-row justify-content-md-between text-center text-md-start align-items-center">
             <a href="#" class="logo">
-                <img src="<?= baseUrl('assets/logo-white.svg') ?>" alt="Logo" class="img-fluid" style="width:150px" />
+                <img src="<?= baseUrl('assets/logo-white.svg') ?>" alt="Logo" class="img-fluid" style="width:180px" />
             </a>
             
-            <nav class="nav flex-column flex-md-row gap-md-3 text-center text-md-start">
+            <nav class="nav flex-column flex-md-row gap-md-3 text-center text-md-start align-items-center">
                 <a class="nav-link text-white" aria-current="page" href="">
                         Home
                     </a>
@@ -15,7 +15,7 @@
                         </svg>
                         Register a Store
                     </a>
-                    <a class="btn btn-light rounded-5 mt-3 mt-md-0" href="#">Find Shop</a>
+                    <a class="btn btn-lg btn-light rounded-5 mt-3 mt-md-0" href="#">Find Shop</a>
                     
                 </nav>
             </div>
