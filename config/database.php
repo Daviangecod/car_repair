@@ -4,7 +4,7 @@ $dbConfig = [
     'host' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'eams',
+    'database' => 'car_repair',
 ];
 
 // Create a connection using MySQLi (Procedural)

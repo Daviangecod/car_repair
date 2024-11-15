@@ -24,16 +24,6 @@ if (!function_exists("baseUrl")) {
     }
 }
 
-if (!function_exists("resourceUrl")) {
-    function resourceUrl(string $path = null)
-    {
-        if ($path !== null) {
-            return baseUrl('resources' .  "/" . $path);
-        }
-        return baseUrl('resources');
-    }
-}
-
 
 if (!function_exists("basePath")) {
     function basePath(string $path = null)

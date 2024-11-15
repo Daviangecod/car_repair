@@ -1,15 +1,19 @@
+@import url('font.css');
 
 :root {
     --theme-primary: #404A76;
     --theme-primary-dark: #3a4267;
     --theme-primary-light: #6f7dbc;
     --theme-white: #fff;
+    --theme-light: #e9eaea;
 }
+
 
 @font-face {
     font-family: "DM Sans";
     src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
 }
+
 
 body {
     font-family: 'DM Sans', sans-serif;
@@ -25,7 +29,6 @@ body {
 
 
 @media screen and (min-width: 1000px) {
-
     .main-homepage form {
         width: 50%;
     } 
@@ -40,6 +43,10 @@ body {
 
 .bg-theme-primary {
     background-color: var(--theme-primary);
+}
+
+.fill-theme-primary {
+    color: var(--theme-primary)!important;
 }
 
 .bg-theme-primary-light {
@@ -59,5 +66,45 @@ body {
     background-color: var(--theme-primary-dark);
     color: var(--theme-white);
 }
+
+/* Front Page */
+
+.auth-main {
+    min-height: 100vh;
+}
+
+.auth-main .auth-image {
+    background-image: url('../images/mechanic-tools.jpg');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.auth-main .form-area {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .auth-main .form-area {
+        width: 50%;
+    }
+    
+}
+
+
+
+/* Admin */
+
+.sb-sidenav-menu .nav-link:hover {
+    padding: 1rem;
+    background-color: var(--theme-light);
+}
+
+.sb-sidenav-menu .nav-link.active {
+    padding: 1rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-light)!important;
+}
+
 
 
