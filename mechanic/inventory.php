@@ -9,6 +9,9 @@
         .form-control{
             width: 150px;
         }
+        .full-width-table {
+            width: 100%;
+        }
 
     </style>
 
@@ -24,20 +27,19 @@
                     <li class="breadcrumb-item active">Inventory</li>
                 </ol>
             </div>
-    <div class="container">
-        <h1>Inventory Dashboard</h1>
-        <p>Welcome, [Mechanic Name]</p>  <!-- Replace with actual mechanic name -->
-
+    <div class="container-fluid p-4 m-4 bg-white">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label for="searchInput">Search Inventory:</label>
-                    <input type="text" class="form-control" id="searchInput" onkeyup="filterTable()" placeholder="Enter part number or description">
+                    <input type="text" class="form-control" id="searchInput" onkeyup="filterTable()" placeholder="Enter a description">
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="inventoryTable">
+                    <table class="table table-bordered col-md-10" id="inventoryTable">
                         <thead>
                             <tr>
+                                <th>Vehicle</th>
+                                <th>Customer</th>
                                 <th>Part Number</th>
                                 <th>Description</th>
                                 <th>Quantity</th>
@@ -47,24 +49,30 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>BMW</td>
+                                <td>Davinci</td>
                                 <td>12345</td>
                                 <td>Spark Plugs</td>
                                 <td>10</td>
-                                <td>$5.00</td>
+                                <td>5000fcfa</td>
                                 <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Delete</button></td>
                             </tr>
                             <tr>
+                                <td>BMW</td>
+                                <td>Davinci</td>
                                 <td>67890</td>
                                 <td>Oil Filter</td>
                                 <td>20</td>
-                                <td>$10.00</td>
+                                <td>10000fcfa</td>
                                 <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Delete</button></td>
                             </tr>
                              <tr>
+                                <td>BMW</td>
+                                <td>Davinci</td>
                                 <td>13579</td>
                                 <td>Brake Pads</td>
                                 <td>5</td>
-                                <td>$25.00</td>
+                                <td>25000fcfa</td>
                                 <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Delete</button></td>
                             </tr>
                             <!-- Add more rows as needed -->
@@ -85,6 +93,14 @@
                             </div>
                             <div class="modal-body">
                                 <form>
+                                    <div class="form-group">
+                                        <label for="partNumber">Vehicle:</label>
+                                        <input type="text" class="form-control" id="vehicle" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="partNumber">Customer:</label>
+                                        <input type="text" class="form-control" id="customer" required>
+                                    </div>
                                     <div class="form-group">
                                         <label for="partNumber">Part Number:</label>
                                         <input type="text" class="form-control" id="partNumber" required>
@@ -111,13 +127,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <!-- Add other sections as needed (e.g., low stock alerts, reports, etc.) -->
+            <!-- <div class="col-md-6">
+             Add other sections as needed (e.g., low stock alerts, reports, etc.)
                 <h2>Low Stock Alerts</h2>
                 <ul>
                     <li>Part Number: 13579 - Brake Pads (Low Stock)</li>
                     </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 

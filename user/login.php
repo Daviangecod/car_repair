@@ -16,10 +16,9 @@
         <div class="card border border-light-subtle rounded-3 shadow-sm">
           <div class="card-body p-3 p-md-4 p-xl-5">
             <div class="text-center mb-3">
-              <a href="#!">
-              <img src="../assets/images/logo.svg" alt="logo" width="170px">
-              </a>  
-            </a>
+              <a href="#!" class="logo" style="color: #1e2130; font-size: 3.5rem; text-decoration: none; font-weight: bold;">
+                D-cars
+              </a>
             </div>
             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
             <form action="#!">

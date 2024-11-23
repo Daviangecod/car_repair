@@ -1,7 +1,8 @@
-<link rel="stylesheet" href="../asstes/css/styles.css">
+
 <nav class="sb-topnav navbar navbar-expand bg-white">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 logo" style= "color: #1e2130; font-size: 3.5rem; font-weight: bold;" href="index.php">D-cars</a>
+            <a class="navbar-brand ps-3 logo" href="index.php"><img src="../assets/images/logo.svg" alt="logo" width="150px"
+            height="150px"></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm text-black order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- notification icon -->
