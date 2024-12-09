@@ -8,7 +8,6 @@
         <meta name="author" content="" />
         <title>Password Reset - Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">

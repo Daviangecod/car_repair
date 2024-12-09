@@ -19,10 +19,10 @@
                 </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="card mx-5 my-2">
+            <div class="card ">
                 <div class="card-body bg-white">
             <div class="col-md-3 sidebar">
-                </div> <div class="col-md-9 main-content">
+                </div> <div class="main-content">
                 <div class="form-inline mb-3">
                     <input type="text" class="form-control mr-2" id="searchInput" placeholder="Search by Vehicle ID, Customer, or Issue">
                     <select class="form-control mr-2" id="statusFilter">
@@ -62,7 +62,7 @@
                                 <td>2024-03-15</td>
                                 <td></td>
                                 <td>Spark plugs, oil filter</td>
-                                <td>$500</td>
+                                <td>500</td>
                             </tr>
                             <tr>
                                 <td>67890</td>
@@ -74,7 +74,7 @@
                                 <td>2024-03-12</td>
                                 <td>2024-03-12</td>
                                 <td>Brake pads, rotors</td>
-                                <td>$300</td>
+                                <td>300</td>
                             </tr>
                             <tr>
                                 <td>13579</td>
@@ -86,7 +86,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>New tires</td>
-                                <td>$200</td>
+                                <td>200</td>
                             </tr>
                             <!-- Add more rows as needed -->
                         </tbody>

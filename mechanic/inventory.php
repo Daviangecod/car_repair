@@ -27,7 +27,7 @@
                     <li class="breadcrumb-item active">Inventory</li>
                 </ol>
             </div>
-    <div class="container-fluid p-4 m-4 bg-white">
+    <div class="container-fluid p-4 m-4 bg-white border border-1 rounded">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
