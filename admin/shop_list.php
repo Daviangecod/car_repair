@@ -38,10 +38,10 @@
                     <!-- Example data - Replace with dynamic data from your backend -->
                     <tr>
                         <td>1</td>
-                        <td>Bob's Auto Repair</td>
-                        <td><a href="https://www.bobsautorepair.com" target="_blank">www.bobsautorepair.com</a></td>
-                        <td>123 Main St, Anytown</td>
-                        <td>555-1212</td>
+                        <td>Total energies vogt</td>
+                        <td><a href="https://totalenergies.cm/" target="_blank">https://totalenergies.cm/</a></td>
+                        <td>Carrefour vogt Yaounde</td>
+                        <td>+237670-950-000</td>
                         <td>
                             <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
                             <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</a>
@@ -49,10 +49,10 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Ace Auto Service</td>
-                        <td></td>  <!-- Example of a shop without a website -->
-                        <td>456 Oak Ave, Anytown</td>
-                        <td>555-3434</td>
+                        <td>Garage de l'espoir</td>
+                        <td>No website</td>  <!-- Example of a shop without a website -->
+                        <td>St route de Ngousso</td>
+                        <td>No phone number</td>
                         <td>
                             <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</a>
                             <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</a>

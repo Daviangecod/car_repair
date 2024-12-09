@@ -38,19 +38,14 @@
                 </div>
                 <div class="col-12">
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
-                    <label for="password" class="form-label">Password</label>
+                    <input type="text" class="form-control" name="garage" id="garage" placeholder="Enter your garage" required>
+                    <label for="garage" class="form-label">Garage</label>
                   </div>
                 </div>
                 <div class="col-12">
-                  <div class="d-flex gap-2 justify-content-between">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe">
-                      <label class="form-check-label text-secondary" for="rememberMe">
-                        Keep me logged in
-                      </label>
-                    </div>
-                    <a href="#!" class="link-primary text-decoration-none">Forgot password?</a>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                    <label for="password" class="form-label">Password</label>
                   </div>
                 </div>
                 <div class="col-12">
@@ -59,7 +54,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <p class="m-0 text-secondary text-center">Already have an account? <a href="login.php" class="link-primary text-decoration-none">Log in</a></p>
+                  <p class="m-0 text-secondary text-center">Already have an account? <a href="login_mechanics.php" class="link-primary text-decoration-none">Log in</a></p>
                 </div>
               </div>
             </form>

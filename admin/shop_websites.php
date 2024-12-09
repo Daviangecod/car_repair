@@ -40,8 +40,8 @@
                             <!-- Shop data will be loaded here -->
                             <tr>
                                 <td>1</td>
-                                <td>Speedy Repairs</td>
-                                <td><a href="https://www.speedyrepairs.com" target="_blank">https://www.speedyrepairs.com</a></td>
+                                <td>Total energies vogt</td>
+                                <td><a href="https://totalenergies.cm/" target="_blank">https://totalenergies.cm/</a></td>
                                 <td>
                                     <button type="button" class="btn btn-warning btn-sm">Edit</button>
                                     <button type="button" class="btn btn-danger btn-sm">Delete</button>

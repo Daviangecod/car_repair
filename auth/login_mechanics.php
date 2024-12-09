@@ -38,13 +38,7 @@
                 </div>
                 <div class="col-12">
                   <div class="d-flex gap-2 justify-content-between">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe">
-                      <label class="form-check-label text-secondary" for="rememberMe">
-                        Keep me logged in
-                      </label>
-                    </div>
-                    <a href="#!" class="link-primary text-decoration-none">Forgot password?</a>
+                    <a href="password.php" class="link-primary text-decoration-none">Forgot password?</a>
                   </div>
                 </div>
                 <div class="col-12">
@@ -53,7 +47,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <p class="m-0 text-secondary text-center">Don't have an account? <a href="register.php" class="link-primary text-decoration-none">Sign up</a></p>
+                  <p class="m-0 text-secondary text-center">Don't have an account? <a href="register_mechanic.php" class="link-primary text-decoration-none">Sign up</a></p>
                 </div>
               </div>
             </form>
