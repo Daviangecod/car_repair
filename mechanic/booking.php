@@ -17,26 +17,38 @@
                 <div class="container bg-white p-4 border border-1 rounded">
                     <h1>List of bookings</h1><br>
                     <div class="form-group mb-3">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search by Client Name or Vehicle ID">
+            <!-- <input type="text" class="form-control" id="searchInput" placeholder="Search by Client Name or Vehicle ID"> -->
         </div>
 
-        <div class="table-responsive">
-            <table class="table table-bordered w-100">
-                <thead>
-                    <tr>
-                        <th>Booking ID</th>
-                        <th>Client Name</th>
-                        <th>Vehicle ID</th>
-                        <th>Issue Description</th>
-                        <th>Requested Date</th>
-                        <th>Requested Time</th>
-                        <th>Scheduled Date</th>
-                        <th>Scheduled Time</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                            <tr>
+                                    <th>Booking ID</th>
+                                    <th>Client Name</th>
+                                    <th>Vehicle ID</th>
+                                    <th>Issue Description</th>
+                                    <th>Requested Date</th>
+                                    <th>Requested Time</th>
+                                    <th>Scheduled Date</th>
+                                    <th>Scheduled Time</th>
+                                    <th>Status</th>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                    <th>Booking ID</th>
+                                    <th>Client Name</th>
+                                    <th>Vehicle ID</th>
+                                    <th>Issue Description</th>
+                                    <th>Requested Date</th>
+                                    <th>Requested Time</th>
+                                    <th>Scheduled Date</th>
+                                    <th>Scheduled Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            <tr>
                         <td>1001</td>
                         <td>John Doe</td>
                         <td>ABC-123</td>
@@ -69,11 +81,15 @@
                         <td>3:00 PM</td>
                         <td>In progress</td>
                     </tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <?php require('./templates/copyright.php') ?>
     </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

@@ -23,7 +23,7 @@
                 <div class="container mt-4 bg-white border border-1 rounded p-4">
         <h1>Shop Management</h1>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>ID</th>

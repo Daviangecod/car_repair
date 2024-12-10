@@ -47,7 +47,7 @@
 
         <h2>Customers</h2>
         <div class="table-responsive">
-            <table class="table table-bordered" id="customerTable">
+            <table class="table table-bordered" id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>Name</th>

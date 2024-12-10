@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>ID</th>

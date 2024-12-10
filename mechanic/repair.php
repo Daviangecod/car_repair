@@ -24,19 +24,19 @@
             <div class="col-md-3 sidebar">
                 </div> <div class="main-content">
                 <div class="form-inline mb-3">
-                    <input type="text" class="form-control mr-2" id="searchInput" placeholder="Search by Vehicle ID, Customer, or Issue">
-                    <select class="form-control mr-2" id="statusFilter">
+                    <!-- <input type="text" class="form-control mr-2" id="searchInput" placeholder="Search by Vehicle ID, Customer, or Issue">
+                    <select class="form-control mr-2" id="statusFilter"> 
                         <option value="">All Statuses</option>
                         <option value="In progress">In progress</option>
                         <option value="Completed">Completed</option>
                         <option value="Pending">Pending</option>
                     </select>
                     <button class="btn btn-primary" onclick="filterTable()">Filter</button>
-                </div>
+                </div>-->
 
 
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="repairTable">
+                    <table class="table table-bordered" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>Vehicle ID</th>

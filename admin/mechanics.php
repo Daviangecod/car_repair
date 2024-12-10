@@ -24,7 +24,7 @@
 
         <h2>Shop Management</h2>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -84,7 +84,7 @@
 
         <h2>Mechanic Management</h2>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="datatablesSimple">
                 <thead>
                     <tr>
                     <th>ID</th>

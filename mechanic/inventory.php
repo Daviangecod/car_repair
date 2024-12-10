@@ -31,11 +31,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="searchInput">Search Inventory:</label>
-                    <input type="text" class="form-control" id="searchInput" onkeyup="filterTable()" placeholder="Enter a description">
+                    <!--<label for="searchInput">Search Inventory:</label>
+                     <input type="text" class="form-control" id="searchInput" onkeyup="filterTable()" placeholder="Enter a description"> -->
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered col-md-10" id="inventoryTable">
+                    <table class="table table-bordered col-md-10" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>Vehicle</th>

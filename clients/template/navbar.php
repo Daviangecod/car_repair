@@ -42,6 +42,13 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="navbar-nav d-flex flex-row me-1">
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link mx-3" href="pages/mechanics.php">
+                            mechanics
+                        </a>
+                    </li>
+                </ul>
                 <!-- Search -->
                 <form class="w-auto mx-3">
                     <input type="search" class="form-control" placeholder="Find a shop" aria-label="Search" name="search" />

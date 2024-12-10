@@ -56,7 +56,7 @@
 
         <h2>Staff Members</h2>
         <div class="table-responsive">
-            <table class="table table-bordered w-100" id="staffTable">
+            <table class="table table-bordered w-100" id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>Staff ID</th>
