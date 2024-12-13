@@ -1,12 +1,12 @@
 <?php $pageTitle = "Home"; ?>
 
-<?php require('./templates/header.php') ?>
+<?php require_once './templates/header.php' ?>
 
-<?php require('./templates/navbar.php') ?>
+<?php require_once './templates/navbar.php' ?>
 
 <div id="layoutSidenav">
 
-    <?php require('./templates/sidebar.php') ?>
+    <?php require_once './templates/sidebar.php' ?>
 
     <div id="layoutSidenav_content" class="bg-light">
         <main>
@@ -67,8 +67,8 @@
               
             </div>
         </main>
-        <?php require('./templates/copyright.php') ?>
+        <?php require_once './templates/copyright.php' ?>
     </div>
 </div>
 
-<?php require('./templates/footer.php') ?>
+<?php require_once './templates/footer.php' ?>
