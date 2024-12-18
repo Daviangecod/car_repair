@@ -1,6 +1,6 @@
 <?php $pageTitle = "Mechanic Stores"; ?>
 
-<?php require __DIR__ .'/../templates/header.php' ?>
+<?php require_once __DIR__ .'/../templates/header.php' ?>
 
 <?php require_once basePath('admin/templates/navbar.php') ?>
 

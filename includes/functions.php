@@ -141,3 +141,27 @@ if (!function_exists("mailTemplate")) {
         return $template;
     }
 }
+
+if(!function_exists('validateEmail')) {
+
+    function validateEmail(string $email)
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
+}
+
+if(!function_exists('emailExist')) {
+    function emailExist(string $email) {
+        global $connection;
+    
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($connection, $query);
+    
+        if(mysqli_num_rows($result) > 0) {
+            return true;
+        }
+    
+        return false;
+    }
+}

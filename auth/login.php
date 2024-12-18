@@ -7,7 +7,7 @@
 
         <h1 class="text-center mb-4">Authentication</h1>
 
-        <form action="" class="w-75 mx-auto" autocomplete="off">
+        <form action="<?= baseUrl('auth/action/authenticate.php')  ?>" method="POST" class="w-75 mx-auto" autocomplete="off">
 
             <div class="form-group mb-4">
                 <label for="email">Email Address</label>
