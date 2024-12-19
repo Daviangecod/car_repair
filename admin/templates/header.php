@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . "/../../vendor/autoload.php" ?>
+<?php require_once __DIR__ . "/vendor.php" ?>
+<?php require_once middlewarePath('check_auth_user.php') ?>
+<?php require_once middlewarePath('check_user_not_email_verified.php') ?>
+<?php require_once middlewarePath('check_is_admin.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">

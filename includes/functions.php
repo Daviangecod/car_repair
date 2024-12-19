@@ -1,7 +1,10 @@
 <?php 
 
-require_once __DIR__ . "/../config/settings.php";
-require_once __DIR__ . "/../config/mail.php";
+$basePath = dirname(__DIR__, 1);
+require_once $basePath . "/config/settings.php";
+require_once $basePath . "/config/mail.php";
+
+
 
 if (!function_exists("siteName")) {
     function siteName()
@@ -29,12 +32,19 @@ if (!function_exists("baseUrl")) {
 if (!function_exists("basePath")) {
     function basePath(string $path = null)
     {
-        if ($path !== null) {
-            return getConfig('base_path') . "/" . $path;
-        }
-        return getConfig('base_path');
+        global $basePath;
+        return $basePath . $path;
     }
 }
+
+
+if (!function_exists("middlewarePath")) {
+    function middlewarePath(string $path = null)
+    {
+        return basePath("/middleware/" . $path);
+    }
+}
+
 
 
 if (!function_exists("redirect")) {
@@ -191,4 +201,15 @@ if(!function_exists('uniqueId')) {
         return $result;
 
     }
+}
+
+
+function email_verification_message($link) {
+
+    $message = "
+        <p>Please click the link below to verify your email address</p>
+        <p style='text-align:center'> <a href='$link' class='button'>Verify your email address</a> </p>
+    ";
+
+    return $message;
 }

@@ -1,12 +1,9 @@
 <?php
 
-$basePath = dirname(__DIR__, 2);
-
-require_once $basePath . "/vendor/autoload.php";
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
-if($_SERVER['REQUEST_METHOD'] !== "POST") {
+if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
     redirect(baseUrl('auth/register.php'), ['error' => 'method_not_allowed']);
 }
 else {
@@ -17,7 +14,8 @@ else {
     else {
 
         $name = mysqli_real_escape_string($connection, $_POST['name']);
-        $email = validateEmail($_POST['email']);
+        $email = mysqli_real_escape_string($connection, validateEmail($_POST['email']));
+        
         $password = $_POST['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -25,14 +23,13 @@ else {
         if($_POST['userType'] == "client") { $roleId = CLIENT;}
         if($_POST['userType'] == "mechanic") { $roleId = MECHANIC; }
 
-        $token = uniqueId();
     
         if(emailExist($email)) {
             redirect(baseUrl('auth/register.php'), ['error' => 'email_exist']);
         }
         else {
     
-            $query = "INSERT INTO users(role_id, name, email, password, token) VALUES($roleId, '$name', '$email', '$hashedPassword', '$token')";
+            $query = "INSERT INTO users(role_id, name, email, password) VALUES($roleId, '$name', '$email', '$hashedPassword')";
         
             $result = mysqli_query($connection, $query);
         

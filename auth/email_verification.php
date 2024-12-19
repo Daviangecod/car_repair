@@ -7,22 +7,26 @@
 
         <h1 class="text-center mb-4">Email Verification</h1>
 
-        <div class="card w-75 mx-auto bg-white">
+        <form action="<?= baseUrl("auth/action/send_verification_email.php") ?>" method="POST">
 
-            <div class="card-header">
-                <h3 class="text-center fs-5">Check your Email Address</h3>
+            <div class="card w-75 mx-auto bg-white">
+
+                <div class="card-header">
+                    <h3 class="text-center fs-5">Check your Email Address</h3>
+                </div>
+
+                <div class="card-body">
+                    <p> Thanks for signing up! Before you get started, could you please verify your email address, by clicking on the link we just emailed you? </p>
+                    <p> If you didn't receive the email, we will gladly send you another.</p>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-lg btn-theme-primary text-white d-block w-50 mx-auto">Resend</button>
+                </div>
+
             </div>
 
-            <div class="card-body">
-                <p> Thanks for signing up! Before you get started, could you please verify your email address, by clicking on the link we just emailed you? </p>
-                <p> If you didn't receive the email, we will gladly send you another.</p>
-            </div>
-
-            <div class="card-footer">
-                <a href="" class="btn btn-lg btn-theme-primary text-white d-block w-100">Resend</a>
-            </div>
-
-        </div>
+        </form>
 
 
             

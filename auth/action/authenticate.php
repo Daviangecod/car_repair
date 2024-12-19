@@ -6,17 +6,34 @@ require_once $basePath . "/vendor/autoload.php";
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
-if($_SERVER['REQUEST_METHOD'] !== "POST") {
-    redirect(baseUrl('auth/login.php'), ['error' => 'Method Not Allowed']);
+if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
+    redirect(baseUrl('auth/login.php'), ['error' => 'method_not_allowed']);
 }
 else {
 
-    $email = validateEmail($_POST['email']);
+    $email = mysqli_real_escape_string($connection, validateEmail($_POST['email']));
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($connection, $query);
+    try {
 
-    dump($result);
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($connection, $query);
+
+    
+        if(mysqli_num_rows($result) == 1) {
+
+            $user = mysqli_fetch_assoc($result); 
+            $hashedPassword = $user['password']; 
+
+        }
+    
+        dump($result);
+        
+
+    } catch (\Exception $e) {
+        //throw $th;
+    }
+
+   
 
 }
