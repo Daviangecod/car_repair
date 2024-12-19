@@ -29,8 +29,8 @@
                 <label for="userType">User Type</label>
                 <select class="form-control form-control-lg" name="userType" id="userType"> 
                     <option value="" selected hidden>Select a User Type</option>
-                    <option value="">Client</option>
-                    <option value="">Mechanic</option>
+                    <option value="client">Client</option>
+                    <option value="mechanic">Mechanic</option>
                 </select>
             </div>
 

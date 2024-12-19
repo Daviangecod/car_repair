@@ -165,3 +165,30 @@ if(!function_exists('emailExist')) {
         return false;
     }
 }
+
+
+if(!function_exists('uniqueId')) {
+
+    function uniqueId($length = 30) {
+
+        $string = bin2hex(random_bytes(ceil($length / 2))); 
+        $randomString = substr($string, 0, $length);
+
+        $numDashes = max(1, min(5, strlen($string) - 1));
+        $positions = range(1, strlen($string) - 1);
+        shuffle($positions);
+        $selectedPositions = array_slice($positions, 0, $numDashes);
+        sort($selectedPositions);
+
+        $result = '';
+        $lastPos = 0;
+        foreach ($selectedPositions as $pos) {
+            $result .= substr($string, $lastPos, $pos - $lastPos) . '-';
+            $lastPos = $pos;
+        }
+        $result .= substr($string, $lastPos);
+
+        return $result;
+
+    }
+}

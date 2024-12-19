@@ -20,15 +20,19 @@ else {
         $email = validateEmail($_POST['email']);
         $password = $_POST['password'];
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $roleId = MECHANIC;
-    
 
+
+        if($_POST['userType'] == "client") { $roleId = CLIENT;}
+        if($_POST['userType'] == "mechanic") { $roleId = MECHANIC; }
+
+        $token = uniqueId();
+    
         if(emailExist($email)) {
             redirect(baseUrl('auth/register.php'), ['error' => 'email_exist']);
         }
         else {
     
-            $query = "INSERT INTO users(role_id, name, email, password) VALUES($roleId, '$name', '$email', '$hashedPassword')";
+            $query = "INSERT INTO users(role_id, name, email, password, token) VALUES($roleId, '$name', '$email', '$hashedPassword', '$token')";
         
             $result = mysqli_query($connection, $query);
         
