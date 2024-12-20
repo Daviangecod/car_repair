@@ -12,7 +12,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 else {
 
     if(!isset($_SESSION['loginId'])) {
-        redirect(baseUrl("auth/email_verification.php"), ["error" => "unexpected_error"]);
+        redirect(baseUrl("auth/login.php"), ["error" => "authentication_required"]);
     }
   
     $loggedUser = $_SESSION['loginId'];
