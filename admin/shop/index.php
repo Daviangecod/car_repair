@@ -1,12 +1,13 @@
 <?php $pageTitle = "Mechanic Stores"; ?>
 
-<?php require_once __DIR__ .'/../templates/header.php' ?>
+<?php $adminPath = dirname(__DIR__, 1); ?>
 
-<?php require_once basePath('admin/templates/navbar.php') ?>
+<?php require_once $adminPath .'/templates/header.php' ?>
+<?php require_once $adminPath . '/templates/navbar.php' ?>
 
 <div id="layoutSidenav">
 
-    <?php require_once basePath('admin/templates/sidebar.php') ?>
+    <?php require_once $adminPath . '/templates/sidebar.php' ?>
 
     <div id="layoutSidenav_content" class="bg-light">
         <main>
@@ -16,7 +17,7 @@
                     <li class="breadcrumb-item active"><?= ucwords($pageTitle) ?></li>
                 </ol>
               
-                
+            
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -508,8 +509,8 @@
               
             </div>
         </main>
-        <?php require_once basePath('admin/templates/copyright.php') ?>
+        <?php require_once $adminPath . '/templates/copyright.php' ?>
     </div>
 </div>
 
-<?php require_once basePath('admin/templates/footer.php') ?>
+<?php require_once $adminPath . '/templates/footer.php' ?>

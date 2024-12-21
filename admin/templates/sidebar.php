@@ -50,7 +50,7 @@
          </div>
          <div class="sb-sidenav-footer">
              <div class="small">Logged in as:</div>
-             Start Bootstrap
+            <span class="badge bg-theme-primary text-uppercase fs-6" style="text-wrap: wrap ;"> <?= ucwords($_SESSION['fullName'] ) ?></span>
          </div>
      </nav>
  </div>

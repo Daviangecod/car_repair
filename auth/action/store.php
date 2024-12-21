@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/vendor.php';
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 

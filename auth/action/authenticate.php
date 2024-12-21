@@ -1,8 +1,6 @@
 <?php
 
-$basePath = dirname(__DIR__, 2);
-
-require_once $basePath . "/vendor/autoload.php";
+require_once __DIR__ . '/vendor.php';
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
@@ -58,11 +56,14 @@ else {
                         $_SESSION['role'] = "admin";
                         $_SESSION['fullName'] = ucwords($fullName);
 
-                        redirect(baseUrl("/admin/index.php"), ["success" => "login_success"]);
+                        redirect(baseUrl("admin/index.php"), ["success" => "login_success"]);
                     }
 
                }
 
+        }
+        else {
+            redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
         }
     
        
