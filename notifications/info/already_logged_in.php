@@ -1,4 +1,4 @@
-<?php if(isset($_GET['info']) & $_GET['info'] === "already_logged_in"): ?>
+<?php if(isset($_GET['info']) && $_GET['info'] === "already_logged_in"): ?>
     <script>
         Swal.fire({
             icon: "info",

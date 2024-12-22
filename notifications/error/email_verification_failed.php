@@ -1,4 +1,4 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "email_verification_failed"): ?>
+<?php if(isset($_GET['error']) && $_GET['error'] === "email_verification_failed"): ?>
     <script>
         Swal.fire({
             icon: "error",

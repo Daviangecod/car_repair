@@ -1,4 +1,4 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "invalid_credentials"): ?>
+<?php if(isset($_GET['error']) && $_GET['error'] === "invalid_credentials"): ?>
     <script>
         Swal.fire({
             icon: "error",

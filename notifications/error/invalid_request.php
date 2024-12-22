@@ -1,4 +1,4 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "invalid_request"): ?>
+<?php if(isset($_GET['error']) && $_GET['error'] === "invalid_request"): ?>
     <script>
         Swal.fire({
             icon: "error",

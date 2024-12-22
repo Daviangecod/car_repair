@@ -1,4 +1,4 @@
-<?php if(isset($_GET['success']) & $_GET['success'] === "email_verification_message_sent"): ?>
+<?php if(isset($_GET['success']) && $_GET['success'] === "email_verification_message_sent"): ?>
     <script>
         Swal.fire({
             icon: "success",

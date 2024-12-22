@@ -40,6 +40,7 @@
 
 
 <?php require_once successNotification('registration_success') ?>
+<?php require_once successNotification('logout_success') ?>
 
 <?php require_once errorNotification('method_not_allowed') ?>
 <?php require_once errorNotification('empty_fields') ?>

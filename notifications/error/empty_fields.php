@@ -1,4 +1,4 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "empty_fields"): ?>
+<?php if(isset($_GET['error']) && $_GET['error'] === "empty_fields"): ?>
     <script>
         Swal.fire({
             icon: "error",

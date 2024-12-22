@@ -1,4 +1,4 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "unexpected_error"): ?>
+<?php if(isset($_GET['error']) && $_GET['error'] === "unexpected_error"): ?>
     <script>
         Swal.fire({
             icon: "error",
