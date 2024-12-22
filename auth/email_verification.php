@@ -40,4 +40,6 @@
 
 </main>
 
+<?php require_once successNotification('email_verification_message_sent') ?>
+
 <?php require_once __DIR__ . "/../templates/footer.php"; ?>

@@ -38,9 +38,9 @@ if (!function_exists("basePath")) {
 
 
 if (!function_exists("middlewarePath")) {
-    function middlewarePath(string $path = null)
+    function middlewarePath(string $fileName)
     {
-        return basePath("/middleware/" . $path);
+        return basePath("/middleware/" . $fileName . ".php");
     }
 }
 
@@ -209,15 +209,32 @@ if (!function_exists("mailTemplate")) {
     }
 }
 
-function emailVerificationMessage($link) {
+if(!function_exists("emailVerificationMessage")) {
+    function emailVerificationMessage($link) {
 
-    $message = "
-        <p>Please click the link below to verify your email address</p>
-        <p style='text-align:center'> <a href='$link' class='button'>Verify your email address</a> </p>
-    ";
-
-    return $message;
+        $message = "
+            <p>Please click the link below to verify your email address</p>
+            <p style='text-align:center'> <a href='$link' class='button'>Verify your email address</a> </p>
+        ";
+    
+        return $message;
+    }
 }
+
+if(!function_exists("sendEmailVerificationMail")) {
+    function sendEmailVerificationMail(string $email, string $name, string $link)
+    {
+         $email = $email;
+         $subject = 'Verify your email address';
+         $title = "Email Verification";
+         $greeting = "Hello ". ucwords($name) . "!";
+         $body = emailVerificationMessage($link);
+         $message = mailTemplate($title, $greeting, $body);
+        
+         return sendMail($email, $subject, $message);
+    }
+}
+
 
 
 if(!function_exists('validateEmail')) {
@@ -240,6 +257,22 @@ if(!function_exists('emailExist')) {
             return true;
         }
     
+        return false;
+    }
+}
+
+if(!function_exists('emailNotVerified')) {
+    function emailNotVerified(string $email) {
+        global $connection;
+    
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($connection, $query);
+
+        $user = mysqli_fetch_assoc($result);
+
+        if($user['email_verified_at'] === null) {
+            return true;
+        }
         return false;
     }
 }

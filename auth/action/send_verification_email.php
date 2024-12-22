@@ -32,15 +32,10 @@ else {
 
                     // Send email verification mail
                     $email = $user['email'];
-                    $subject = 'Verify your email address';
-                    $title = "Email Verification";
-                    $greeting = "Hello User";
+                    $name = $user['name'];
                     $link = baseUrl('auth/action/verify_email.php', ["token" => $token]);
-                    $body = emailVerificationMessage($link);
-
-                    $message = mailTemplate($title, $greeting, $body);
                 
-                    if (sendMail($email, $subject, $message)) {
+                    if (sendEmailVerificationMail($email, $name, $link)) {
 
                         redirect(baseUrl("auth/email_verification.php"), ["success" => "email_verification_message_sent"]);
 

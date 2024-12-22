@@ -4,10 +4,9 @@ require_once __DIR__ . '/vendor.php';
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
-if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
+if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
     redirect(baseUrl('auth/login.php'), ['error' => 'method_not_allowed']);
-}
-else {
+} else {
 
 
     $email = mysqli_real_escape_string($connection, validateEmail($_POST['email']));
@@ -18,61 +17,91 @@ else {
         $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($connection, $query);
 
-    
-        if(mysqli_num_rows($result) == 1) {
 
-            $user = mysqli_fetch_assoc($result); 
-            $hashedPassword = $user['password']; 
+        if (mysqli_num_rows($result) == 1) {
+
+            $user = mysqli_fetch_assoc($result);
+            $hashedPassword = $user['password'];
+
+            // If user email is not verified during authentication send mail
+            if(emailNotVerified($user['email'])) {
+
+                $token = uniqueId();
+                $userId = $user['id'];
+
+                $query = "UPDATE users SET `token` = '$token' WHERE id = $userId";
+                $result = mysqli_query($connection, $query);
+
+                if($result) {
+                    $email = $user['email'];
+                    $name = $user['name'];
+                    $link = baseUrl('auth/action/verify_email.php', ["token" => $token]);
+                    sendEmailVerificationMail($email, $name, $link);
+                }
+               
+            }
 
 
-               // Verify Password
-               if(password_verify($password, $hashedPassword)) {
+            // Verify Password
+            if (password_verify($password, $hashedPassword)) {
 
-                     // Start the session and save some user details in the session
-                     session_start();
-                     $_SESSION['loginId'] = $user['id'];
+                // Start the session and save some user details in the session
+                session_start();
+                $_SESSION['loginId'] = $user['id'];
 
 
-                     // Check role and redirect to dashboard
+                // Check role and redirect to dashboard
 
-                     if($user['role_id'] == ADMIN) {
+                if ($user['role_id'] == ADMIN) {
 
-                        // Save Admin Full Names in Session
-                        $admin = [];
-                        $fullName = "";
+                    // Save Admin Full Names in Session
+                    $admin = [];
+                    $fullName = "";
 
-                        $userId = $_SESSION['loginId'];
-                        $query = "SELECT * FROM users WHERE id = $userId";
-                        $result = mysqli_query($connection, $query);
+                    $userId = $_SESSION['loginId'];
+                    $query = "SELECT * FROM users WHERE id = $userId";
+                    $result = mysqli_query($connection, $query);
 
-                        if(mysqli_num_rows($result) == 1) {
-                            $admin = mysqli_fetch_assoc($result);
-                        }
-
-                        // dump($admin);
-                        // exit;
-
-                        $fullName = $admin['name'];
-                        $_SESSION['role'] = "admin";
-                        $_SESSION['fullName'] = ucwords($fullName);
-
-                        redirect(baseUrl("admin/index.php"), ["success" => "login_success"]);
+                    if (mysqli_num_rows($result) == 1) {
+                        $admin = mysqli_fetch_assoc($result);
                     }
 
-               }
+                    // dump($admin);
+                    // exit;
 
-        }
-        else {
+                    $fullName = $admin['name'];
+                    $_SESSION['role'] = "admin";
+                    $_SESSION['fullName'] = ucwords($fullName);
+
+                    redirect(baseUrl("admin/index.php"), ["success" => "login_success"]);
+
+                } elseif ($user['role_id'] == MECHANIC) {
+
+
+                    // Save Mechanic Full Names in Session
+                    $mechanic = [];
+                    $fullName = "";
+
+                    $userId = $_SESSION['loginId'];
+                    $query = "SELECT * FROM users WHERE id = $userId";
+                    $result = mysqli_query($connection, $query);
+
+                    if (mysqli_num_rows($result) == 1) {
+                        $mechanic = mysqli_fetch_assoc($result);
+                    }
+
+
+                    $fullName = $mechanic['name'];
+                    $_SESSION['role'] = "mechanic";
+                    $_SESSION['fullName'] = ucwords($fullName);
+
+                    redirect(baseUrl("mechanic/index.php"), ["success" => "login_success"]);
+                }
+            }
+        } else {
             redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
         }
-    
-       
-        
-
     } catch (\Exception $e) {
-        //throw $th;
+        redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error']);
     }
-
-   
-
 }

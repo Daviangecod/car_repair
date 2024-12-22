@@ -1,9 +1,9 @@
-<?php if(isset($_GET['error']) & $_GET['error'] === "authentication_required"): ?>
+<?php if(isset($_GET['error']) & $_GET['error'] === "invalid_request"): ?>
     <script>
         Swal.fire({
             icon: "error",
             title: "Error...",
-            text: "You need to login"
+            text: "Invalid Request!"
         });
     </script>
 <?php endif ?>

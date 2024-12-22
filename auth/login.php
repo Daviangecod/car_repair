@@ -40,4 +40,11 @@
 
 <?php require_once successNotification('registration_success') ?>
 
+<?php require_once errorNotification('method_not_allowed') ?>
+<?php require_once errorNotification('empty_fields') ?>
+<?php require_once errorNotification('unexpected_error') ?>
+<?php require_once errorNotification('invalid_credentials') ?>
+<?php require_once errorNotification('invalid_request') ?>
+<?php require_once errorNotification('authentication_required') ?>
+
 <?php require_once __DIR__ . "/../templates/footer.php"; ?>

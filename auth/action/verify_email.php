@@ -36,6 +36,10 @@ else {
                     redirect(baseUrl("admin/index.php"), ["success" => "email_verification_success"]);
                 }
 
+                elseif($loggedUserRole === "mechanic") {
+                    redirect(baseUrl("mechanic/index.php"), ["success" => "email_verification_success"]);
+                }
+
             }
             else {
                 redirect(baseUrl("auth/email_verification.php"), ["error" => "email_verification_failed"]);
