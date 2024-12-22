@@ -14,7 +14,7 @@
         <title><?= siteName() ?> - <?= $pageTitle ?? "Dashboard" ?></title>
         <link href="<?= baseUrl('admin/assets/simple-datatables/style.min.css') ?>" rel="stylesheet" />
         <link href="<?= baseUrl('admin/assets/css/admin.css') ?>" rel="stylesheet" />
-        <link rel="stylesheet" href="<?= baseUrl('assets/style/main.css') ?>" />
+        <link rel="stylesheet" href="<?= assetStyleUrl('main.css') ?>" />
         <link rel="stylesheet" href="<?= assetVendorUrl('sweetalert2/css/sweetalert2.min.css') ?>" />
         <script src="<?= assetVendorUrl('sweetalert2/js/sweetalert2.all.min.js') ?>"></script>
     </head>

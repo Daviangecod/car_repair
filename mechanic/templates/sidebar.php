@@ -6,8 +6,7 @@
      <nav class="sb-sidenav accordion bg-white" id="sidenavAccordion">
          <div class="sb-sidenav-menu mt-5">
              <div class="nav gap-2">
-                 <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                 <a class="nav-link text-black  <?= strpos($hayStack, "admin/index.php")  ? 'active' : '' ?>" href="<?= baseUrl('admin') ?>">
+                 <a class="nav-link text-black <?= strpos($hayStack, "/mechanic/index.php")  ? 'active' : '' ?>" href="<?= baseUrl('mechanic') ?>">
                      <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
                             <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
@@ -17,13 +16,22 @@
                      Dashboard
                  </a>
 
-                 <a class="nav-link text-black <?= strpos($hayStack, "admin/shop/index.php")  ? 'active' : '' ?>" href="<?= baseUrl('admin/shop/') ?>">
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/shop/index.php")  ? 'active' : '' ?>" href="<?= baseUrl('mechanic/shop/') ?>">
                      <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
                             <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
                         </svg>
                      </div>
                      Repair Shops
+                 </a>
+
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/shop/create.php")  ? 'active' : '' ?>" href="<?= baseUrl('mechanic/shop/create.php') ?>">
+                     <div class="sb-nav-link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
+                        </svg>
+                     </div>
+                     Add Shop
                  </a>
 
                  <a class="nav-link text-black" href="inventory.php">

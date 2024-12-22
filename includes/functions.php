@@ -66,6 +66,13 @@ if(!function_exists("assetStyleUrl")) {
     }
 }
 
+if(!function_exists("assetJsUrl")) {
+    function assetJsUrl(string $file = null) 
+    {
+        return baseUrl("assets/js/" . $file);
+    }
+}
+
 
 if(!function_exists("assetImageUrl")) {
     function assetImageUrl(string $file = null) 
@@ -95,9 +102,6 @@ if(!function_exists("infoNotification")) {
         return basePath("/notifications/info/" . $fileName . ".php");
     }
 }
-
-
-
 
 
 if (!function_exists("redirect")) {
