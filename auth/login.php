@@ -37,4 +37,7 @@
 
 </main>
 
+
+<?php require_once successNotification('registration_success') ?>
+
 <?php require_once __DIR__ . "/../templates/footer.php"; ?>

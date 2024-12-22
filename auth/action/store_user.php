@@ -20,8 +20,10 @@ else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-        if($_POST['userType'] == "client") { $roleId = CLIENT;}
-        if($_POST['userType'] == "mechanic") { $roleId = MECHANIC; }
+        /* if($_POST['userType'] == "client") { $roleId = CLIENT;}
+        if($_POST['userType'] == "mechanic") { $roleId = MECHANIC; } */
+
+        $roleId = MECHANIC;
 
     
         if(emailExist($email)) {

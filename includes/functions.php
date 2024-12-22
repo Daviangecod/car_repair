@@ -16,7 +16,6 @@ if (!function_exists("siteName")) {
 if (!function_exists("baseUrl")) {
     function baseUrl(string $path = null, array $query = null)
     {
-
         if ($path !== null && $query !== null) {
             $build = http_build_query($query);
             return getConfig('base_url') . "/" . $path . "?" . $build;
@@ -44,6 +43,52 @@ if (!function_exists("middlewarePath")) {
         return basePath("/middleware/" . $path);
     }
 }
+
+if(!function_exists("assetUrl")) {
+    function assetUrl(string $path = null) 
+    {
+        return baseUrl("/assets/" . $path);
+    }
+}
+
+
+if(!function_exists("assetVendorUrl")) {
+    function assetVendorUrl(string $file = null) 
+    {
+        return baseUrl("/assets/vendor/" . $file);
+    }
+}
+
+if(!function_exists("assetStyleUrl")) {
+    function assetStyleUrl(string $file = null) 
+    {
+        return baseUrl("/assets/css/" . $file);
+    }
+}
+
+
+if(!function_exists("assetImageUrl")) {
+    function assetImageUrl(string $file = null) 
+    {
+        return baseUrl("/assets/images/" . $file);
+    }
+}
+
+
+if(!function_exists("errorNotification")) {
+    function errorNotification(string $fileName) 
+    {
+        return basePath("/notifications/error/" . $fileName . ".php");
+    }
+}
+
+if(!function_exists("successNotification")) {
+    function successNotification(string $fileName) 
+    {
+        return basePath("/notifications/success/" . $fileName . ".php");
+    }
+}
+
 
 
 
@@ -164,6 +209,17 @@ if (!function_exists("mailTemplate")) {
     }
 }
 
+function emailVerificationMessage($link) {
+
+    $message = "
+        <p>Please click the link below to verify your email address</p>
+        <p style='text-align:center'> <a href='$link' class='button'>Verify your email address</a> </p>
+    ";
+
+    return $message;
+}
+
+
 if(!function_exists('validateEmail')) {
 
     function validateEmail(string $email)
@@ -194,8 +250,7 @@ if(!function_exists('uniqueId')) {
     function uniqueId($length = 30) {
 
         $string = bin2hex(random_bytes(ceil($length / 2))); 
-        $randomString = substr($string, 0, $length);
-
+    
         $numDashes = max(1, min(5, strlen($string) - 1));
         $positions = range(1, strlen($string) - 1);
         shuffle($positions);
@@ -216,12 +271,3 @@ if(!function_exists('uniqueId')) {
 }
 
 
-function email_verification_message($link) {
-
-    $message = "
-        <p>Please click the link below to verify your email address</p>
-        <p style='text-align:center'> <a href='$link' class='button'>Verify your email address</a> </p>
-    ";
-
-    return $message;
-}

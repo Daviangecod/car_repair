@@ -5,8 +5,6 @@
     </div>
 
 </footer>
-
-<script src="<?= baseUrl('assets/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
 </body>
 
 </html>

@@ -36,7 +36,7 @@ else {
                     $title = "Email Verification";
                     $greeting = "Hello User";
                     $link = baseUrl('auth/action/verify_email.php', ["token" => $token]);
-                    $body = email_verification_message($link);
+                    $body = emailVerificationMessage($link);
 
                     $message = mailTemplate($title, $greeting, $body);
                 

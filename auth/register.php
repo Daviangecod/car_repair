@@ -7,7 +7,7 @@
 
         <h1 class="text-center mb-4">User Registration</h1>
 
-        <form action="<?= baseUrl('auth/action/store.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
+        <form action="<?= baseUrl('auth/action/store_user.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
 
             <div class="form-group mb-4">
                 <label for="name">Full Name</label>
@@ -25,14 +25,14 @@
             </div>
 
 
-            <div class="form-group mb-4">
+            <!-- <div class="form-group mb-4">
                 <label for="userType">User Type</label>
                 <select class="form-control form-control-lg" name="userType" id="userType"> 
                     <option value="" selected hidden>Select a User Type</option>
                     <option value="client">Client</option>
                     <option value="mechanic">Mechanic</option>
                 </select>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-lg btn-theme-primary text-white d-block w-100">Create Account</button>
 
@@ -51,5 +51,11 @@
     </div>
 
 </main>
+
+
+<?php require_once errorNotification('method_not_allowed') ?>
+<?php require_once errorNotification('empty_fields') ?>
+<?php require_once errorNotification('email_exist') ?>
+
 
 <?php require_once __DIR__ . "/../templates/footer.php"; ?>
