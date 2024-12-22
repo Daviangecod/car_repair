@@ -28,7 +28,7 @@
                         Login
                     </a>
 
-                    <a class="btn btn-lg btn-light rounded-5 mt-3 mt-md-0" href="#">Find Shop</a>
+                    <a class="btn btn-lg btn-light rounded-5 mt-3 mt-md-0" href="<?= baseUrl('shops.php') ?>">Find Shop</a>
                     
                 </nav>
             </div>

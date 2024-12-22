@@ -1,0 +1,5 @@
+[
+    { "code": "momo", "name": "MTN Mobile Money" },
+    { "code": "OM", "name": "Orange Money" },
+    { "code": "cash", "name": "Cash" }
+]

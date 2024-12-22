@@ -1,5 +1,7 @@
 <?php $pageTitle = "Login"; ?>
-<?php require_once __DIR__ . "/../templates/header.php"; ?>
+<?php require_once __DIR__ . "/path.php" ?>
+<?php require_once $templates . "/header.php"; ?>
+
 <?php require_once middlewarePath('check_guest_user') ?>
 
 <main class="auth-main bg-light d-flex flex-column flex-md-row">
@@ -49,4 +51,4 @@
 <?php require_once errorNotification('invalid_request') ?>
 <?php require_once errorNotification('authentication_required') ?>
 
-<?php require_once __DIR__ . "/../templates/footer.php"; ?>
+<?php require_once $templates . "/footer.php"; ?>

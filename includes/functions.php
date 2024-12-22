@@ -47,7 +47,7 @@ if (!function_exists("middlewarePath")) {
 if(!function_exists("assetUrl")) {
     function assetUrl(string $path = null) 
     {
-        return baseUrl("/assets/" . $path);
+        return baseUrl("assets/" . $path);
     }
 }
 
@@ -55,14 +55,14 @@ if(!function_exists("assetUrl")) {
 if(!function_exists("assetVendorUrl")) {
     function assetVendorUrl(string $file = null) 
     {
-        return baseUrl("/assets/vendor/" . $file);
+        return baseUrl("assets/vendor/" . $file);
     }
 }
 
 if(!function_exists("assetStyleUrl")) {
     function assetStyleUrl(string $file = null) 
     {
-        return baseUrl("/assets/css/" . $file);
+        return baseUrl("assets/css/" . $file);
     }
 }
 
@@ -70,7 +70,7 @@ if(!function_exists("assetStyleUrl")) {
 if(!function_exists("assetImageUrl")) {
     function assetImageUrl(string $file = null) 
     {
-        return baseUrl("/assets/images/" . $file);
+        return baseUrl("assets/images/" . $file);
     }
 }
 

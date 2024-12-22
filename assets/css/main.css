@@ -32,6 +32,8 @@ body {
     } 
 }
 
+/* Utility Classes */
+
 .bg-main {
     background-image: url('../images/background.jpeg');
     background-blend-mode: multiply;
@@ -59,10 +61,21 @@ body {
     background-color: var(--theme-primary);
     color: var(--theme-white);
 }
+.btn-outline-theme-primary {
+    background-color: var(--theme-white);
+    color: var(--theme-primary);
+    border: 1px solid var(--theme-primary);
+}
 
-.btn-theme-primary:hover{
+.btn-theme-primary:hover, 
+.btn-outline-theme-primary:hover{
     background-color: var(--theme-primary-dark);
     color: var(--theme-white);
+}
+
+.page-item.active {
+    background-color: var(--theme-primary-dark)!important;
+    color: var(--theme-white)!important;
 }
 
 /* Front Page */

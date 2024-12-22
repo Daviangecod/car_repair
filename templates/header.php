@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="<?= assetVendorUrl('bootstrap/css/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= assetStyleUrl('main.css') ?>" />
     <link rel="stylesheet" href="<?= assetVendorUrl('sweetalert2/css/sweetalert2.min.css') ?>" />
+    <link rel="stylesheet" href="<?= assetVendorUrl('leaflet/leaflet.css') ?>" />
+    
     <script src="<?= assetVendorUrl('bootstrap/js/bootstrap.min.js') ?>"></script>
     <script src="<?= assetVendorUrl('sweetalert2/js/sweetalert2.all.min.js') ?>"></script>
+    <script src="<?= assetVendorUrl('leaflet/leaflet.js') ?>"></script>
 </head>
 <body>
