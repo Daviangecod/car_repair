@@ -89,6 +89,14 @@ if(!function_exists("successNotification")) {
     }
 }
 
+if(!function_exists("infoNotification")) {
+    function infoNotification(string $fileName) 
+    {
+        return basePath("/notifications/info/" . $fileName . ".php");
+    }
+}
+
+
 
 
 

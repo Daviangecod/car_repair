@@ -1,5 +1,6 @@
 <?php $pageTitle = "Email Verification"; ?>
 <?php require_once __DIR__ . "/../templates/header.php"; ?>
+<?php require_once middlewarePath('check_guest_user') ?>
 
 <main class="auth-main bg-light d-flex flex-column flex-md-row">
 

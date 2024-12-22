@@ -597,4 +597,7 @@
     </div>
 </div>
 
+<?php require_once infoNotification('already_logged_in'); ?>
+<?php require_once successNotification('email_verification_success'); ?>
+
 <?php require_once __DIR__ . '/templates/footer.php' ?>
