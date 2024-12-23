@@ -316,3 +316,57 @@ if(!function_exists('uniqueId')) {
 }
 
 
+if(!function_exists("locationJsonSearcj")) {
+
+    function locationJsonSearch(string $hayStack) {
+    
+        $file = basePath('/json/locations.json');
+    
+        $existingData = file_get_contents($file);
+        $locations = json_decode($existingData, true);
+    
+        foreach($locations as $location) {
+            if(strtolower($location['name']) == strtolower($hayStack)) {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
+}
+
+
+if(!function_exists("appendLocationJson")) {
+
+    function appendLocationJson(array $data) {
+        $file = basePath('/json/locations.json');
+    
+        // If file doesn't exist create it with an empty array
+        if(!file_exists($file)) {
+            file_put_contents($file, json_encode([])); 
+        }
+    
+        // Get existing data
+        $existingData = file_get_contents($file);
+        $dataArray = json_decode($existingData, true);
+    
+    
+        // Add new data to the array
+        array_push($dataArray, $data);
+    
+        // Encode array back to json
+        $jsonData = json_encode($dataArray, JSON_PRETTY_PRINT);
+    
+        // Write the updated JSON back to the file
+        $put =  file_put_contents($file, $jsonData);
+    
+        if($put) {
+            return true;
+        }
+    
+        return false;
+    }
+
+
+}    

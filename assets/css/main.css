@@ -118,4 +118,6 @@ body {
 }
 
 
-
+.datatable-table > tbody > tr > .datatable-empty { 
+    text-align: center!important;
+}

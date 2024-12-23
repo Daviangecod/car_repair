@@ -1,9 +1,27 @@
-<?php $pageTitle = "Create Store"; ?>
+<?php $pageTitle = "Modify Store"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
 <?php require_once $mechanicPath . '/templates/header.php' ?>
 <?php require_once $mechanicPath . '/templates/navbar.php' ?>
+<?php require_once basePath('/config/database.php') ?>
+
+<?php 
+
+    if(isset($_GET['id'])): 
+
+    $userId = $_SESSION['loginId'];
+    $shop = [];
+    $shopId = $_GET["id"];
+
+    $query = "SELECT * FROM shops WHERE user_id = $userId AND id = $shopId";
+    $result = mysqli_query($connection, $query);
+
+    if(mysqli_num_rows($result) == 1) {
+        $shop = mysqli_fetch_assoc($result);
+    }  
+?>
+
 
 <div id="layoutSidenav">
 
@@ -18,12 +36,12 @@
                 </ol>
 
                 <div>
-                    <form action="<?= baseUrl('mechanic/shop/action/store.php') ?>" method="POST" id="addShopForm" enctype="multipart/form-data">
-
+                    <form action="<?= baseUrl('mechanic/shop/action/update.php', ['id' => $shop['id']]) ?>" method="POST" id="addShopForm" enctype="multipart/form-data">
+                    
                         <div class="row gy-3 mb-4">
                             <div class="col-12 col-md-6">
                                 <label for="shopName" class="fw-bold">Shop Name</label>
-                                <input type="text" name="shopName" id="shopName" class="form-control" placeholder="Auto Masters">
+                                <input type="text" name="shopName" id="shopName" class="form-control" value="<?= $shop['name'] ?>" placeholder="Auto Masters">
                             </div>
 
                             <div class="col-12 col-md-6">
@@ -44,7 +62,15 @@
 
                                         <?php foreach ($locations as $location): ?>
 
-                                            <option value="<?= $location->name ?>"><?= $location->name ?></option>
+                                            <?php if($location->name == $shop['location']): ?>
+
+                                                <option value="<?= $location->name ?>" selected><?= $location->name ?></option>
+
+                                            <?php else: ?>
+
+                                                <option value="<?= $location->name ?>"><?= $location->name ?></option>
+
+                                            <?php endif ?>
 
                                         <?php endforeach ?>
 
@@ -54,47 +80,48 @@
                                             
                                  <div class="mt-2">
                                     <!-- <label for="otherLocation">Other Location</label> -->
-                                    <input type="text" class="form-control d-none" name="otherLocation" id="otherLocation" placeholder="Type Location Here" />
+                                    <input type="text" class="form-control d-none" name="otherLocation" id="otherLocation" placeholder="Type Location Here" value="<?= $shop["location"] ?>" />
                                  </div>
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="phoneNumber" class="fw-bold">Phone Number</label>
-                                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="600000000">
+                                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" value="<?= $shop['phone_number'] ?>" placeholder="600000000">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="website" class="fw-bold">Website</label>
-                                <input type="url" name="website" id="website" class="form-control" placeholder="https://www.example.com">
+                                <input type="url" name="website" value="<?= $shop['website'] ?>" id="website" class="form-control" placeholder="https://www.example.com">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="facebook" class="fw-bold">Facebook</label>
-                                <input type="url" name="facebook" id="facebook" class="form-control" placeholder="https://www.facebook.com/autospace">
+                                <input type="url" name="facebook" id="facebook"  value="<?= $shop['facebook'] ?>" class="form-control" placeholder="https://www.facebook.com/autospace">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="twitter" class="fw-bold">Twitter</label>
-                                <input type="url" name="twitter" id="twitter" class="form-control" placeholder="https://www.x.com/autospace">
+                                <input type="url" name="twitter" id="twitter"  value="<?= $shop['twitter'] ?>" class="form-control" placeholder="https://www.x.com/autospace">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="instagram" class="fw-bold">Instagram</label>
-                                <input type="url" name="instagram" id="instagram" class="form-control" placeholder="https://www.instagram.com/autospace">
+                                <input type="url" name="instagram" id="instagram"  value="<?= $shop['instagram'] ?>" class="form-control" placeholder="https://www.instagram.com/autospace">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="tiktok" class="fw-bold">Tiktok</label>
-                                <input type="url" name="tiktok" id="tiktok" class="form-control" placeholder="https://www.tiktok.com/autospace">
+                                <input type="url" name="tiktok" id="tiktok" class="form-control"  value="<?= $shop['tiktok'] ?>" placeholder="https://www.tiktok.com/autospace">
                             </div>
 
                             <div class="col-12 col-md-6">
                                 <label for="image" class="fw-bold">Select Store Image (512 x 512)</label>
                                 <input type="file" name="image" id="image" class="form-control">
                             </div>
+                            
                         </div>
 
-                        <button type="submit" class="btn btn-theme-primary">Create</button>
+                        <button type="submit" class="btn btn-theme-primary">Update</button>
 
                     </form>
                 </div>
@@ -104,6 +131,8 @@
         <?php require_once $mechanicPath . '/templates/copyright.php' ?>
     </div>
 </div>
+
+<?php endif ?>
 
 <?php require_once errorNotification('method_not_allowed') ?>
 <?php require_once errorNotification('empty_fields') ?>

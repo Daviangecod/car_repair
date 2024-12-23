@@ -15,13 +15,22 @@ else {
     }
     else {
 
-
         $shopName = mysqli_real_escape_string($connection, $_POST['shopName']);
         $phoneNumber = mysqli_real_escape_string($connection, $_POST['phoneNumber']);
 
         if($_POST['location'] === "other") {
 
             $location = mysqli_real_escape_string($connection, $_POST['otherLocation']);
+
+            // If it does not already exist, add it
+            if(locationJsonSearch($location) == false) {
+                $data = [
+                    "name" => $location
+                ];
+                // Incase new location, add the location to the json file
+                appendLocationJson($data);
+            }
+
         }
         else{
             $location = mysqli_real_escape_string($connection, $_POST['location']);
@@ -33,9 +42,43 @@ else {
         $twitter = mysqli_real_escape_string($connection, $_POST['twitter']);
         $instagram = mysqli_real_escape_string($connection, $_POST['instagram']);
         $tiktok = mysqli_real_escape_string($connection, $_POST['tiktok']);
+        $fileName = '';
+
+        // Check image
+
+        if(isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
+
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            $maxSize = 1024 * 1024; // 1MB
+            $uploadDir = basePath('/storage/mechanics/');
+
+            if(!in_array($_FILES['image']['type'], $allowedTypes)){
+                redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'invalid_image_type']);
+            }
+
+            if($_FILES['image']['size'] > $maxSize) {
+                redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'image_too_large']);
+            }
+
+            // Get the file type
+            $fileTypeArray = explode("/", $_FILES['image']['type']);
+            $fileType = ".".$fileTypeArray[1];
+
+
+            $fileName = strtoupper(uniqueId(10)) . time() . $fileType ;
+
+            $destination = $uploadDir . $fileName;
+
+            $move = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
+            if(!$move) {
+                redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'unexpected_image_upload_error']);
+            }
+
+        }
        
 
-        $query = "INSERT INTO shops(user_id, name, location, phone_number, website, facebook, twitter, instagram, tiktok) VALUES($userId, '$shopName', '$location', '$phoneNumber', '$website', '$facebook', '$twitter', '$instagram', '$tiktok')";
+        $query = "INSERT INTO shops(user_id, name, location, phone_number, website, facebook, twitter, instagram, tiktok, image) VALUES($userId, '$shopName', '$location', '$phoneNumber', '$website', '$facebook', '$twitter', '$instagram', '$tiktok', '$fileName')";
 
         $result = mysqli_query($connection, $query);
 

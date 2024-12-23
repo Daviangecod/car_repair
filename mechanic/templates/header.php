@@ -16,6 +16,9 @@
         <link href="<?= baseUrl('mechanic/assets/css/admin.css') ?>" rel="stylesheet" />
         <link rel="stylesheet" href="<?= assetStyleUrl('main.css') ?>" />
         <link rel="stylesheet" href="<?= assetVendorUrl('sweetalert2/css/sweetalert2.min.css') ?>" />
+        <link rel="stylesheet" href="<?= assetVendorUrl('leaflet/leaflet.css') ?>" />
+
         <script src="<?= assetVendorUrl('sweetalert2/js/sweetalert2.all.min.js') ?>"></script>
+        <script src="<?= assetVendorUrl('leaflet/leaflet.js') ?>"></script>
     </head>
     <body class="sb-nav-fixed">
