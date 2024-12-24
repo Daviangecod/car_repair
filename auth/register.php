@@ -1,7 +1,10 @@
+
 <?php $pageTitle = "Register"; ?>
 <?php require_once __DIR__ . "/path.php" ?>
 <?php require_once $templates . "/header.php"; ?>
 <?php require_once middlewarePath('check_guest_user') ?>
+
+
 
 <main class="auth-main bg-light d-flex flex-column flex-md-row">
 
@@ -9,7 +12,7 @@
 
         <h1 class="text-center mb-4">User Registration</h1>
 
-        <form action="<?= baseUrl('auth/action/store_user.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
+        <form action="<?= baseUrl('auth/action/test.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
 
             <div class="form-group mb-4">
                 <label for="name">Full Name</label>
@@ -54,10 +57,6 @@
 
 </main>
 
-
 <?php require_once errorNotification('method_not_allowed') ?>
-<?php require_once errorNotification('empty_fields') ?>
-<?php require_once errorNotification('email_exist') ?>
-
 
 <?php require_once $templates . "/footer.php"; ?>

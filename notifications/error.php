@@ -1,9 +1,13 @@
-<?php if(isset($_GET['error']) && $_GET['error'] === "authentication_required"): ?>
+<?php 
+    $message = getFlashMessage('error');
+?>
+
+<?php if($message): ?>
     <script>
         Swal.fire({
             icon: "error",
             title: "Error...",
-            text: "You need to login"
+            text: "<?php echo $message ?>"
         });
     </script>
 <?php endif ?>

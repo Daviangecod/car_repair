@@ -1,9 +1,13 @@
-<?php if(isset($_GET['success']) && $_GET['success'] === "login_success"): ?>
+<?php 
+    $message = getFlashMessage('success');
+?>
+
+<?php if($message): ?>
     <script>
         Swal.fire({
             icon: "success",
             title: "Success...",
-            text: "Authentication Successful"
+            text: "<?php echo $message ?>"
         });
     </script>
 <?php endif ?>

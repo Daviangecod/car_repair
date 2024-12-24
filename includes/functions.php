@@ -1,5 +1,4 @@
 <?php 
-
 $basePath = dirname(__DIR__, 1);
 require_once $basePath . "/config/settings.php";
 require_once $basePath . "/config/mail.php";
@@ -377,3 +376,19 @@ if(!function_exists("appendLocationJson")) {
 
 
 }    
+
+
+function setFlashMessage($key, $message) {
+    $_SESSION['flash'][$key]['message'] = $message;
+}
+
+function getFlashMessage($key) {
+    if (isset($_SESSION['flash'][$key])) {
+        $flash = $_SESSION['flash'][$key];
+        $message =  $flash['message'];
+        unset($_SESSION['flash'][$key]);
+        return $message;
+    }
+
+    return null;
+}
