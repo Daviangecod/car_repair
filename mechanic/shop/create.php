@@ -58,6 +58,11 @@
                                  </div>
                             </div>
 
+                            <div class="col-12">
+                                <label for="description" class="fw-bold">Description</label>
+                                <textarea name="description" id="description" class="form-control" style="min-height: 150px; resize:vertical;"></textarea>
+                            </div>
+
                             <div class="col-12 col-md-6">
                                 <label for="phoneNumber" class="fw-bold">Phone Number</label>
                                 <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="600000000">

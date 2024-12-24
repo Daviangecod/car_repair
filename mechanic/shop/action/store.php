@@ -10,13 +10,14 @@ if(strtolower($_SERVER['REQUEST_METHOD']) !== "post") {
 }
 else {
 
-    if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber'])) {
+    if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber']) || empty($_POST['description'])) {
         redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'empty_fields']);
     }
     else {
 
         $shopName = mysqli_real_escape_string($connection, $_POST['shopName']);
         $phoneNumber = mysqli_real_escape_string($connection, $_POST['phoneNumber']);
+        $description = mysqli_real_escape_string($connection, $_POST['description']);
 
         if($_POST['location'] === "other") {
 
@@ -78,7 +79,7 @@ else {
         }
        
 
-        $query = "INSERT INTO shops(user_id, name, location, phone_number, website, facebook, twitter, instagram, tiktok, image) VALUES($userId, '$shopName', '$location', '$phoneNumber', '$website', '$facebook', '$twitter', '$instagram', '$tiktok', '$fileName')";
+        $query = "INSERT INTO shops(user_id, name, location, phone_number, website, facebook, twitter, instagram, tiktok, image, description) VALUES($userId, '$shopName', '$location', '$phoneNumber', '$website', '$facebook', '$twitter', '$instagram', '$tiktok', '$fileName', '$description')";
 
         $result = mysqli_query($connection, $query);
 

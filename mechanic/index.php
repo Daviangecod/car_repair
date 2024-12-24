@@ -82,20 +82,6 @@
 
                 </div>
 
-                <div class="row mb-3">
-
-                    <div class="col-xl-12">
-                        <div class="card mb-4">
-                            <div class="card-header bg-white">
-                                <i class="fas fa-chart-area me-1"></i>
-                                Daily Mechanic Registration Chart
-                            </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                        </div>
-                    </div>
-
-                </div>
-
                 <div class="row">
 
                     <div class="col-xl-12">

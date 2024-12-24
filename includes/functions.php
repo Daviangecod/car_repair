@@ -51,6 +51,13 @@ if(!function_exists("assetUrl")) {
     }
 }
 
+if(!function_exists("storageUrl")) {
+    function storageUrl(string $path = null) 
+    {
+        return baseUrl("storage/" . $path);
+    }
+}
+
 
 if(!function_exists("assetVendorUrl")) {
     function assetVendorUrl(string $file = null) 
