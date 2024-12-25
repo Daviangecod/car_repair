@@ -51,7 +51,7 @@ if (isset($_GET['id'])):
                                     </div>
 
                                     <div class="col-12 col-md-9 py-3">
-                                        <div class="card-header bg-white border-bottom-0 text-uppercase fw-bold fs-2">Auto Pro Spare Parts</div>
+                                        <div class="card-header bg-white border-bottom-0 text-uppercase fw-bold fs-2"><?= $shop['name'] ?></div>
                                         <div class="card-body">
                                             <p class="text-uppercase text-secondary fs-6">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo" viewBox="0 0 16 16">
@@ -68,7 +68,7 @@ if (isset($_GET['id'])):
                                             </p>
                                         </div>
                                         <div class="card-footer bg-white border-top-0 text-start">
-                                            <?php if (isset($shop['website'])): ?>
+                                            <?php if (!empty($shop['website'])): ?>
                                                 <a href="<?= $shop['website'] ?>" target="_blank" class="btn btn-warning">Visit Website</a>
                                             <?php endif ?>
                                         </div>
@@ -267,9 +267,14 @@ if (isset($_GET['id'])):
 
             // Function to fetch latitude and longitude using Nominatim
             async function fetchLatLon(location) {
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}+Yaounde+CM`);
+                // const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}+Yaounde+Cameroon`);
+
+                const response = await fetch(`https://geocode.maps.co/search?q=${encodeURIComponent(location)}+Yaounde+Cameroon&api_key=676c4d55c9d3e594532280egr337ea1`);
+
+
                 const data = await response.json();
                 if (data.length > 0) {
+
                     return {
                         lat: parseFloat(data[0].lat),
                         lon: parseFloat(data[0].lon)

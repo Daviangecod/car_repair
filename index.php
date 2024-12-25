@@ -11,7 +11,7 @@
         <h1 class="fw-bold display-5 mb-5 d-block d-md-none">Find Your Perfect Car <br> Repair Shop</h1>
 
 
-        <form action="" class="mx-auto">
+        <form action="<?= baseUrl('shops.php') ?>" method="GET" class="mx-auto">
 
             <div class="input-group">
                 <label for="search" class="visually-hidden">Search Car Repair Shop</label>
