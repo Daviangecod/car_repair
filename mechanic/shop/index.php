@@ -9,6 +9,8 @@
 <?php 
     $userId = $_SESSION['loginId'];
 
+    $shops = [];
+
     $query = "SELECT * FROM shops WHERE user_id = $userId";
     $result = mysqli_query($connection, $query);
 
@@ -77,7 +79,9 @@
 
                                                 <a href="<?= baseUrl('mechanic/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-warning">View</a>
 
-                                                <a href="<?= baseUrl('mechanic/service/index.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-primary" title="Manage Services">Services</a>
+                                                <a href="<?= baseUrl('mechanic/service/shop-service.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-primary" title="Manage Services">Services</a>
+
+                                                <a href="<?= baseUrl('mechanic/shop/delete.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>
                                         </tr>
 

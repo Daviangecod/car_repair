@@ -7,8 +7,11 @@
 <?php require_once basePath('/config/database.php') ?>
 
 <?php 
+    $shopId = $_GET['id'];
     
-    $query = "SELECT * FROM services";
+    $services = [];
+
+    $query = "SELECT * FROM services WHERE shop_id = $shopId";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
@@ -34,7 +37,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        <a href="<?= baseUrl('mechanic/service/create.php') ?>" class="btn btn-theme-primary">
+                        <a href="<?= baseUrl('mechanic/shop/create.php') ?>" class="btn btn-theme-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>

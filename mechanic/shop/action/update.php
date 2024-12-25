@@ -109,7 +109,7 @@ else {
         }
         else {
             setFlashMessage('error', 'Shop Update Failed');
-            redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $_GET['id'], 'success' => 'shop_update_error']);
+            redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $_GET['id'], 'error' => 'shop_update_error']);
         }
 
     }

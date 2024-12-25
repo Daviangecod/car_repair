@@ -1,4 +1,4 @@
-<?php $pageTitle = "Create Store"; ?>
+<?php $pageTitle = "Create Service"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
@@ -19,7 +19,7 @@
                 </ol>
 
                 <div>
-                    <form action="<?= baseUrl('mechanic/shop/action/store.php') ?>" method="POST" id="addShopForm" enctype="multipart/form-data">
+                    <form action="<?= baseUrl('mechanic/service/action/store.php') ?>" method="POST" enctype="multipart/form-data">
 
                         <div class="row gy-3 mb-4">
                             <div class="col-12">
@@ -28,9 +28,9 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="location" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small></label>
-                                <select name="location" id="location" class="form-select">
-                                    <option selected hidden>Select Location</option>
+                                <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small></label>
+                                <select name="shop" id="shop" class="form-select">
+                                    <option selected hidden>Select Shop</option>
         
                                     <?php 
 
@@ -61,8 +61,8 @@
                                     <input type="text" class="form-control d-none" name="otherLocation" id="otherLocation" placeholder="Type Location Here" />
                                  </div>
                             </div>
-
                             
+                        </div>                            
 
                         <button type="submit" class="btn btn-theme-primary">Create</button>
 

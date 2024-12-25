@@ -16,23 +16,34 @@
                      Dashboard
                  </a>
 
-                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/shop/index.php") ||  strpos($hayStack, "mechanic/shop/edit.php") ||  strpos($hayStack, "mechanic/shop/view.php") ||  strpos($hayStack, "mechanic/shop/create.php") ? 'active' : '' ?>" href="<?= baseUrl('mechanic/shop/') ?>">
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/shop/index.php") ||  strpos($hayStack, "mechanic/shop/edit.php") ||  strpos($hayStack, "mechanic/shop/view.php") ||  strpos($hayStack, "mechanic/shop/create.php") || strpos($hayStack, "mechanic/shop/delete.php") ? 'active' : '' ?>" href="<?= baseUrl('mechanic/shop/') ?>">
                      <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
                             <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
                         </svg>
                      </div>
-                     Repair Shops
+                     Shops
                  </a>
 
 
-                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/service/create.php") ? 'active': '' ?>" href="<?= baseUrl('mechanic/service/create.php') ?>">
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/service/index.php") ||  strpos($hayStack, "mechanic/service/create.php") || strpos($hayStack, "mechanic/service/edit.php") || strpos($hayStack, "mechanic/service/delete.php")  ? 'active': '' ?>" href="<?= baseUrl('mechanic/service/index.php') ?>">
                      <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
                         </svg>
                      </div>
-                     Add Services
+                    Services
+                 </a>
+
+
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/language/index.php")  ? 'active': '' ?>" href="<?= baseUrl('mechanic/language/index.php') ?>">
+                     <div class="sb-nav-link-icon">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
+                        <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+                        <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+                        </svg>
+                     </div>
+                    Language
                  </a>
 
 
