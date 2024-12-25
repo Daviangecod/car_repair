@@ -19,8 +19,9 @@ else {
     else {
         $serviceName = mysqli_real_escape_string($connection, $_POST['serviceName']);
         $shop = mysqli_real_escape_string($connection, $_POST['shop']);
+        $userId = $_SESSION['loginId'];
 
-        $query = "INSERT INTO services(shop_id, name) VALUES($shop, '$serviceName')";
+        $query = "INSERT INTO services(user_id, shop_id, name) VALUES($userId, $shop, '$serviceName')";
         $result = mysqli_query($connection, $query);
 
         if($result) {

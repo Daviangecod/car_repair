@@ -1,4 +1,4 @@
-<?php $pageTitle = "Create Service"; ?>
+<?php $pageTitle = "Create Working Hour"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
@@ -19,17 +19,50 @@
                 </ol>
 
                 <div>
-                    <form action="<?= baseUrl('mechanic/service/action/store.php') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= baseUrl('mechanic/hour/action/store.php') ?>" method="POST" enctype="multipart/form-data">
 
                         <div class="row gy-3 mb-4">
                             <div class="col-12">
-                                <label for="shopName" class="fw-bold">Service Name <span class="text-danger">*</span></label>
-                                <input type="text" name="serviceName" id="serviceName" class="form-control" placeholder="Wheels Repair" required>
+                                <label for="weekDay" class="fw-bold">Week Day <span class="text-danger">*</span></label>
+                                <select name="weekDay" id="weekDay" class="form-select" required>
+                                    <option disabled selected hidden>Select Week Day</option>
+                                    <?php
+                                    if (file_exists(basePath("/json/weekdays.json"))) {
+
+                                        $file = file_get_contents(basePath('/json/weekdays.json'));
+
+                                        $weekDays = json_decode($file);
+                                    }
+                                    ?>
+
+                                    <?php if (isset($weekDays)) : ?>
+
+                                        <?php foreach ($weekDays as $weekDay): ?>
+
+                                            <option value="<?= $weekDay->name ?>"><?= $weekDay->name ?></option>
+
+                                        <?php endforeach ?>
+
+                                    <?php endif ?>
+
+                                </select>
+                                            
+                            </div>
+
+
+                            <div class="col-12 col-md-6">
+                                <label for="opening" class="fw-bold">Opening <span class="text-danger">*</span></label>
+                                <input type="time" name="opening" id="opening" class="form-control">
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="closing" class="fw-bold">Closing <span class="text-danger">*</span></label>
+                                <input type="time" name="closing" id="closing" class="form-control">
                             </div>
 
                             <div class="col-12">
-                                <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small> <span class="text-danger">*</span></label>
-                                <select name="shop" id="shop" class="form-select" required>
+                                <label for="shop" class="fw-bold">Select Shop <small><em>(The shops working hours)</em></small> <span class="text-danger">*</span></label>
+                                <select name="shop" id="shop" class="form-select">
                                     <option value="" selected hidden>Select Shop</option>
         
                                     <?php 

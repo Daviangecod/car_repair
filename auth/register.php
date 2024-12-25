@@ -12,7 +12,7 @@
 
         <h1 class="text-center mb-4">User Registration</h1>
 
-        <form action="<?= baseUrl('auth/action/test.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
+        <form action="<?= baseUrl('auth/action/store.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
 
             <div class="form-group mb-4">
                 <label for="name">Full Name</label>

@@ -1,4 +1,4 @@
-<?php $pageTitle = "Edit Service"; ?>
+<?php $pageTitle = "Modify Service"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
@@ -34,7 +34,9 @@ if (isset($_GET['id'])):
                     </ol>
 
                     <div>
-                        <form action="<?= baseUrl('mechanic/service/action/update.php', ['id' => $service['id']]) ?>" method="POST" enctype="multipart/form-data">
+                        <form action="<?= baseUrl('mechanic/service/action/update.php') ?>" method="POST" enctype="multipart/form-data">
+
+                            <input type="hidden" name="id" value="<?= $service['id'] ?>" />
 
                             <div class="row gy-3 mb-4">
                                 <div class="col-12">
@@ -43,9 +45,9 @@ if (isset($_GET['id'])):
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small></label>
-                                    <select name="shop" id="shop" class="form-select">
-                                        <option selected hidden>Select Shop</option>
+                                    <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small> <span class="text-danger">*</span></label>
+                                    <select name="shop" id="shop" class="form-select" required>
+                                        <option  value="" selected hidden>Select Shop</option>
 
                                         <?php
 

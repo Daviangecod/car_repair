@@ -36,7 +36,7 @@
                  </a>
 
 
-                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/language/index.php")  ? 'active': '' ?>" href="<?= baseUrl('mechanic/language/index.php') ?>">
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/language/index.php") || strpos($hayStack, "mechanic/language/create.php") || strpos($hayStack, "mechanic/language/edit.php") || strpos($hayStack, "mechanic/language/delete.php")   ? 'active': '' ?>" href="<?= baseUrl('mechanic/language/index.php') ?>">
                      <div class="sb-nav-link-icon">
                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
                         <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
@@ -44,6 +44,28 @@
                         </svg>
                      </div>
                     Language
+                 </a>
+
+
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/payment/index.php") || strpos($hayStack, "mechanic/payment/create.php") || strpos($hayStack, "mechanic/payment/edit.php")  || strpos($hayStack, "mechanic/payment/delete.php") ? 'active': '' ?>" href="<?= baseUrl('mechanic/payment/index.php') ?>">
+                     <div class="sb-nav-link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+                            <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                            <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z"/>
+                        </svg>
+                     </div>
+                    Payment Type
+                 </a>
+
+
+                 <a class="nav-link text-black <?= strpos($hayStack, "mechanic/hour/index.php") || strpos($hayStack, "mechanic/hour/create.php") || strpos($hayStack, "mechanic/hour/edit.php")  || strpos($hayStack, "mechanic/hour/delete.php") ? 'active': '' ?>" href="<?= baseUrl('mechanic/hour/index.php') ?>">
+                     <div class="sb-nav-link-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                        </svg>
+                     </div>
+                   Working Hours
                  </a>
 
 

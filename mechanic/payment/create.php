@@ -1,4 +1,4 @@
-<?php $pageTitle = "Create Service"; ?>
+<?php $pageTitle = "Create Payment Type"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
@@ -19,16 +19,38 @@
                 </ol>
 
                 <div>
-                    <form action="<?= baseUrl('mechanic/service/action/store.php') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= baseUrl('mechanic/payment/action/store.php') ?>" method="POST" enctype="multipart/form-data">
 
                         <div class="row gy-3 mb-4">
-                            <div class="col-12">
-                                <label for="shopName" class="fw-bold">Service Name <span class="text-danger">*</span></label>
-                                <input type="text" name="serviceName" id="serviceName" class="form-control" placeholder="Wheels Repair" required>
+                        <div class="col-12">
+                                <label for="paymentType" class="fw-bold">Payment Type <span class="text-danger">*</span></label>
+                                <select name="paymentType" id="paymentType" class="form-select" required>
+                                    <option value="" selected hidden>Select Payment Type</option>
+                                    <?php
+                                    if (file_exists(basePath("/json/payments.json"))) {
+
+                                        $file = file_get_contents(basePath('/json/payments.json'));
+
+                                        $paymentTypes = json_decode($file);
+                                    }
+                                    ?>
+
+                                    <?php if (isset($paymentTypes)) : ?>
+
+                                        <?php foreach ($paymentTypes as $paymentType): ?>
+
+                                            <option value="<?= $paymentType->name ?>"><?= $paymentType->name ?></option>
+
+                                        <?php endforeach ?>
+
+                                    <?php endif ?>
+
+                                </select>
+                                            
                             </div>
 
                             <div class="col-12">
-                                <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that offers the service)</em></small> <span class="text-danger">*</span></label>
+                                <label for="shop" class="fw-bold">Select Shop <small><em>(The shop that uses the payment type)</em></small> <span class="text-danger">*</span></label>
                                 <select name="shop" id="shop" class="form-select" required>
                                     <option value="" selected hidden>Select Shop</option>
         

@@ -11,15 +11,13 @@
 
     $shops = [];
 
-    $query = "SELECT * FROM shops WHERE user_id = $userId";
+    $query = "SELECT * FROM shops WHERE user_id = $userId ORDER BY id DESC";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
         $shops = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 ?>
-
-
 
 <div id="layoutSidenav">
 
@@ -32,7 +30,6 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><?= ucwords($pageTitle) ?></li>
                 </ol>
-              
             
                 <div class="card mb-4">
                     <div class="card-header">
@@ -78,8 +75,6 @@
                                                 <a href="<?= baseUrl('mechanic/shop/edit.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
 
                                                 <a href="<?= baseUrl('mechanic/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-warning">View</a>
-
-                                                <a href="<?= baseUrl('mechanic/service/shop-service.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-primary" title="Manage Services">Services</a>
 
                                                 <a href="<?= baseUrl('mechanic/shop/delete.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>

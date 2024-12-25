@@ -55,8 +55,8 @@ if (isset($_GET['id'])):
 
                                     <div class="col-12 col-md-6">
                                         <label for="location" class="fw-bold">Location</label>
-                                        <select name="location" id="location" class="form-select">
-                                            <option selected hidden>Select Location</option>
+                                        <select name="location" id="location" class="form-select" required>
+                                            <option value="" selected hidden>Select Location</option>
                                             <option value="other">Other Location</option>
                                             <?php
                                             if (file_exists(basePath("/json/locations.json"))) {

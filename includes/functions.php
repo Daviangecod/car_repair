@@ -383,3 +383,10 @@ function getFlashMessage($key) {
 
     return null;
 }
+
+
+function formatTime(string $time): string
+{
+    $dateTime = new DateTime($time);
+    return $dateTime->format('h:i A');
+}

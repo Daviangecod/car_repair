@@ -7,12 +7,12 @@
 <?php require_once basePath('/config/database.php') ?>
 
 <?php 
-    
-    $query = "SELECT * FROM services";
+    $languages = [];
+    $query = "SELECT * FROM languages";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
-        $services = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $languages = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 ?>
 
@@ -34,7 +34,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        <a href="<?= baseUrl('mechanic/service/create.php') ?>" class="btn btn-theme-primary">
+                        <a href="<?= baseUrl('mechanic/language/create.php') ?>" class="btn btn-theme-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
@@ -60,16 +60,16 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php if(isset($services) && count($services) > 0): ?>
+                                <?php if(isset($languages) && count($languages) > 0): ?>
 
-                                    <?php foreach($services as $service): ?>
+                                    <?php foreach($languages as $language): ?>
                                         
                                         <tr class="text-center">
-                                            <td><?= $service['name'] ?></td>
+                                            <td><?= $language['name'] ?></td>
                                             <td>
                                                 <?php 
                                                     $shop = [];
-                                                    $shopId = $service['shop_id'];
+                                                    $shopId = $language['shop_id'];
                                                     $query = "SELECT * FROM shops WHERE id = $shopId";
                                                     $result = mysqli_query($connection, $query);
 
@@ -82,10 +82,10 @@
 
                                             </td>
                                             
-                                            <td><?= $service['created_at'] ?></td>
+                                            <td><?= $language['created_at'] ?></td>
                                             <td>
-                                                <a href="<?= baseUrl('mechanic/service/edit.php', ['id' => $service['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
-                                                <a href="<?= baseUrl('mechanic/service/delete.php', ['id' => $service['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
+                                                <a href="<?= baseUrl('mechanic/language/edit.php', ['id' => $language['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
+                                                <a href="<?= baseUrl('mechanic/language/delete.php', ['id' => $language['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>
                                         </tr>
 

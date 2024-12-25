@@ -128,61 +128,115 @@ if (isset($_GET['id'])):
                                 <div class="row px-5 py-5">
                                     <div class="col-12 col-md-3">
                                         <h3 class="text-uppercase fs-6 fw-bold">Services</h3>
+                                        <?php 
+                                            $services = [];
+                                            $shopId = $shop['id'];
+                                            $query = "SELECT * FROM services WHERE shop_id = $shopId";
+                                            $result = mysqli_query($connection, $query);
+                                           
+                                            if($result) {
+                                                $services = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                            }
+                                        ?>
                                         <ul>
-                                            <li>Free Estimates</li>
-                                            <li>Insurance Company Assistance</li>
-                                            <li>Lifetime Warranty</li>
-                                            <li>Automotive Glass Replacement</li>
-                                            <li>Detailing</li>
-                                            <li>Paintless Dent Repair</li>
+                                            <?php if(count($services) > 0): ?>
+
+                                                <?php foreach($services as $service): ?>
+
+                                                    <li><?= $service['name'] ?></li>
+
+                                                <?php endforeach ?>
+
+                                            <?php endif ?>
+                                            
                                         </ul>
                                     </div>
                                     <div class="col-12 col-md-3">
                                         <h3 class="text-uppercase fs-6 fw-bold">Payment Types</h3>
+                                        <?php 
+                                            $paymentTypes = [];
+                                            $shopId = $shop['id'];
+                                            $query = "SELECT * FROM payment_types WHERE shop_id = $shopId";
+                                            $result = mysqli_query($connection, $query);
+                                           
+                                            if($result) {
+                                                $paymentTypes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                            }
+                                        ?>
+                                        <?php if(count($paymentTypes) > 0): ?>
                                         <ul>
-                                            <li>Mobile Money</li>
-                                            <li>Cash</li>
+                                            
+                                            <?php foreach($paymentTypes as $paymentType): ?>
+
+                                                <li><?= $paymentType['name'] ?></li>
+
+                                            <?php endforeach ?>
+
                                         </ul>
+                                        <?php endif ?>     
                                     </div>
+
                                     <div class="col-12 col-md-3">
                                         <h3 class="text-uppercase fs-6 fw-bold">Languages</h3>
-                                        <ul>
-                                            <li>English</li>
-                                            <li>French</li>
-                                        </ul>
+                                        <?php 
+                                            $languages = [];
+                                            $shopId = $shop['id'];
+                                            $query = "SELECT * FROM languages WHERE shop_id = $shopId";
+                                            $result = mysqli_query($connection, $query);
+                                           
+                                            if($result) {
+                                                $languages = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                            }
+                                        ?>
+                                        <?php if(count($languages) > 0): ?>
+                                            <ul>
+                                                <?php foreach($languages as $language): ?>
+                                                    <li><?= $language['name'] ?></li>
+                                                <?php endforeach ?>
+                                            </ul>
+                                        <?php endif ?> 
                                     </div>
 
                                     <div class="col-12 col-md-3">
                                         <h3 class="text-uppercase fs-6 fw-bold">Hours</h3>
                                         <table class="table">
-                                            <tr>
-                                                <th>Sun</th>
-                                                <td>CLOSED</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Mon</th>
-                                                <td>7:30 am - 5:30 pm </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Tue</th>
-                                                <td>7:30 am - 5:30 pm </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Wed</th>
-                                                <td>7:30 am - 5:30 pm </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Thurs</th>
-                                                <td>7:30 am - 5:30 pm </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Fri</th>
-                                                <td>7:30 am - 5:30 pm </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Sat</th>
-                                                <td>CLOSED</td>
-                                            </tr>
+
+                                            <?php 
+                                                $workingHours = [];
+                                                $shopId = $shop['id'];
+                                                $query = "SELECT * FROM hours WHERE shop_id = $shopId ORDER BY CASE 
+                                                    WHEN day = 'Sunday' THEN 1
+                                                    WHEN day = 'Monday' THEN 2
+                                                    WHEN day = 'Tuesday' THEN 3
+                                                    WHEN day = 'Wednesday' THEN 4
+                                                    WHEN day = 'Thursday' THEN 5
+                                                    WHEN day = 'Friday' THEN 6
+                                                    WHEN day = 'Saturday' THEN 7
+                                                    ELSE 8
+                                                END;";
+
+                                                $result = mysqli_query($connection, $query);
+                                            
+                                                if($result) {
+                                                    $workingHours = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                }
+                                            ?>
+                                            <?php if(count($workingHours) > 0): ?>
+                                            <ul>
+                                                
+                                                <?php foreach($workingHours as $workingHour): ?>
+
+                                                    <tr>
+                                                        <th><?= substr($workingHour['day'], 0, 3) ?></th>
+                                                        <td><?= ($workingHour['closed'] == true) ? "CLOSED" : formatTime($workingHour['opening']) . " - " . formatTime($workingHour['closing']) ?></td>
+                                                    </tr>
+
+                                                <?php endforeach ?>
+
+                                            </ul>
+                                            <?php endif ?> 
+                                           
+                                        
                                         </table>
 
                                     </div>
@@ -213,7 +267,7 @@ if (isset($_GET['id'])):
 
             // Function to fetch latitude and longitude using Nominatim
             async function fetchLatLon(location) {
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`);
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}+Yaounde+CM`);
                 const data = await response.json();
                 if (data.length > 0) {
                     return {

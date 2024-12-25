@@ -8,13 +8,13 @@ require_once $basePath . "/includes/constants.php";
 
 if(strtolower($_SERVER['REQUEST_METHOD']) !== "post") {
     setFlashMessage('error', 'Method Not Allowed');
-    redirect(baseUrl('mechanic/service/index.php'), ['error' => 'method_not_allowed']);
+    redirect(baseUrl('mechanic/hour/index.php'), ['error' => 'method_not_allowed']);
 }
 else {
 
     if(empty($_POST['id']) || empty($_POST['password'])) {
         setFlashMessage('error', 'One or More Fields are Empty');
-        redirect(baseUrl('mechanic/service/index.php'), ['error' => 'empty_fields']);
+        redirect(baseUrl('mechanic/hour/index.php'), ['error' => 'empty_fields']);
     }
     else {
 
@@ -33,36 +33,36 @@ else {
 
                 if(password_verify($password, $data['password'])) {
 
-                    $serviceId = $_POST['id'];
+                    $workingHourId = $_POST['id'];
 
-                    $query = "DELETE FROM services WHERE id = $serviceId AND user_id = $userId";
+                    $query = "DELETE FROM hours WHERE id = $workingHourId";
                     $result = mysqli_query($connection, $query);
 
                     if($result) {
-                        setFlashMessage('success', 'Service Deletion Successful');
-                        redirect(baseUrl('mechanic/service/index.php'), ['success' => 'service_delete_success']);
+                        setFlashMessage('success', 'Working Hour Deletion Successful');
+                        redirect(baseUrl('mechanic/hour/index.php'), ['success' => 'working_hour_delete_success']);
                     }
                     else {
-                        setFlashMessage('error', 'Service Deletion Failed');
-                        redirect(baseUrl('mechanic/service/index.php'), ['error' => 'service_delete_failed']);
+                        setFlashMessage('error', 'Working Hour Deletion Failed');
+                        redirect(baseUrl('mechanic/hour/index.php'), ['error' => 'working_hour_delete_failed']);
                     }
 
                 }
                 else {
-                        setFlashMessage('error', 'Invalid Password, Validation Failed');
-                        redirect(baseUrl('mechanic/service/index.php'), ['validate' => '0']);
+                    setFlashMessage('error', 'Invalid Password, Validation Failed');
+                    redirect(baseUrl('mechanic/hour/index.php'), ['validate' => '0']);
                 }
 
             }
             else {
                 setFlashMessage('error', 'Unexpected Error');
-                redirect(baseUrl('mechanic/service/index.php'), ['error' => 'unexpected_error']);
+                redirect(baseUrl('mechanic/hour/index.php'), ['error' => 'unexpected_error']);
             }
 
         } catch (\Exception $e) {
             // setFlashMessage('error', $e->getMessage());
             setFlashMessage('error', 'Unexpected Error');
-            redirect(baseUrl('mechanic/service/index.php'), ['error' => 'unexpected_error']);
+            redirect(baseUrl('mechanic/hour/index.php'), ['error' => 'unexpected_error']);
         }
         
         
