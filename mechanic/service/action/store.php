@@ -26,7 +26,7 @@ else {
 
         if($result) {
             setFlashMessage('success', 'Service Creation Successful');
-            redirect(baseUrl('mechanic/service/index.php'), ['id' => "$shop", 'success' => 'service_creation_success']);
+            redirect(baseUrl('mechanic/service/index.php'), ['success' => 'service_creation_success']);
         }
         else {
             setFlashMessage('error', 'Service Creation Failed');
