@@ -104,6 +104,11 @@
 
                     <?php endforeach ?>
 
+                <?php else: ?>
+
+                   <div class="d-flex justify-content-center align-items-center" style="min-height: 350px;">
+                    <p class="text-center fs-2 text-secondary">No Results Found</p>
+                   </div>
 
                 <?php endif ?>
 
