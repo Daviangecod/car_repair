@@ -44,7 +44,10 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 
 
             // Verify Password
-            if (password_verify($password, $hashedPassword)) {
+            if (password_verify($password, $hashedPassword) == false) {
+                setFlashMessage('error', 'Invalid Credentials');
+                redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
+            }
 
                 $_SESSION['loginId'] = $user['id'];
 
@@ -98,11 +101,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                     setFlashMessage('success', 'Login Successful');
                     redirect(baseUrl("mechanic/index.php"), ["auth" => "1"]);
                 }
-            }
-        } else {
-            setFlashMessage('error', 'Invalid Credentials');
-            redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
-        }
+            
+        } 
     } catch (\Exception $e) {
         setFlashMessage('error', 'Unexpected Error');
         redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error']);
