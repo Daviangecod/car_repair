@@ -6,11 +6,13 @@ require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
 if(strtolower($_SERVER['REQUEST_METHOD']) !== "post") {
+    setFlashMessage('error', 'Method Not Allowed');
     redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'method_not_allowed']);
 }
 else {
 
     if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber']) || empty($_POST['description'])) {
+        setFlashMessage('error', 'One or More Fields are Empty');
         redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'empty_fields']);
     }
     else {
@@ -21,17 +23,23 @@ else {
 
         if($_POST['location'] === "other") {
 
-            $location = mysqli_real_escape_string($connection, $_POST['otherLocation']);
-
-            // If it does not already exist, add it
-            if(locationJsonSearch($location) == false) {
-                $data = [
-                    "name" => $location
-                ];
-                // Incase new location, add the location to the json file
-                appendLocationJson($data);
+            if(empty($_POST['otherLocation'])) {
+                setFlashMessage('error', 'Fill in the other location');
+                redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'empty_fields']);
             }
+            else {
 
+                $location = mysqli_real_escape_string($connection, $_POST['otherLocation']);
+    
+                // If it does not already exist, add it
+                if(locationJsonSearch($location) == false) {
+                    $data = [
+                        "name" => $location
+                    ];
+                    // Incase new location, add the location to the json file
+                    appendLocationJson($data);
+                }
+            }
         }
         else{
             $location = mysqli_real_escape_string($connection, $_POST['location']);
@@ -54,10 +62,12 @@ else {
             $uploadDir = basePath('/storage/mechanics/');
 
             if(!in_array($_FILES['image']['type'], $allowedTypes)){
+                setFlashMessage('error', 'Image type is invalid, use either a jpg, png or webp image');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'invalid_image_type']);
             }
 
             if($_FILES['image']['size'] > $maxSize) {
+                setFlashMessage('error', 'The size of the shop image is too large');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'image_too_large']);
             }
 
@@ -73,6 +83,7 @@ else {
             $move = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
             if(!$move) {
+                setFlashMessage('error', 'Unexpected Image Upload Error');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'unexpected_image_upload_error']);
             }
 
@@ -84,9 +95,11 @@ else {
         $result = mysqli_query($connection, $query);
 
         if($result) {
+            setFlashMessage('success', 'Shop Creation Successful');
             redirect(baseUrl('mechanic/shop/index.php'), ['success' => 'shop_creation_success']);
         }
         else {
+            setFlashMessage('error', 'Shop Creation Failed');
             redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'shop_creation_failed']);
         }
 

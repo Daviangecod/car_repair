@@ -88,26 +88,13 @@ if(!function_exists("assetImageUrl")) {
 }
 
 
-if(!function_exists("errorNotification")) {
-    function errorNotification(string $fileName) 
+if(!function_exists("notification")) {
+    function notification(string $fileName) 
     {
-        return basePath("/notifications/error/" . $fileName . ".php");
+        return basePath("/notifications/" . $fileName . ".php");
     }
 }
 
-if(!function_exists("successNotification")) {
-    function successNotification(string $fileName) 
-    {
-        return basePath("/notifications/success/" . $fileName . ".php");
-    }
-}
-
-if(!function_exists("infoNotification")) {
-    function infoNotification(string $fileName) 
-    {
-        return basePath("/notifications/info/" . $fileName . ".php");
-    }
-}
 
 
 if (!function_exists("redirect")) {
@@ -115,9 +102,13 @@ if (!function_exists("redirect")) {
     {
         if ($query !== null) {
             $httpQuery = http_build_query($query);
-            return header("Location: $to?$httpQuery");
+            header("Location: $to?$httpQuery");
         }
-        return header("Location: $to");
+        else {
+            header("Location: $to");
+        }
+
+        exit;
     }
 }
 

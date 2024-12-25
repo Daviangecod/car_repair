@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/vendor.php';
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
 if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
+    setFlashMessage('error', 'Method Not Allowed');
     redirect(baseUrl('auth/login.php'), ['error' => 'method_not_allowed']);
 } else {
 
@@ -45,8 +46,6 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
             // Verify Password
             if (password_verify($password, $hashedPassword)) {
 
-                // Start the session and save some user details in the session
-                session_start();
                 $_SESSION['loginId'] = $user['id'];
 
 
@@ -73,7 +72,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                     $_SESSION['role'] = "admin";
                     $_SESSION['fullName'] = ucwords($fullName);
 
-                    redirect(baseUrl("admin/index.php"), ["success" => "login_success"]);
+                    setFlashMessage('success', 'Login Successful');
+                    redirect(baseUrl("admin/index.php"), ["auth" => "1"]);
 
                 } elseif ($user['role_id'] == MECHANIC) {
 
@@ -95,13 +95,16 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                     $_SESSION['role'] = "mechanic";
                     $_SESSION['fullName'] = ucwords($fullName);
 
-                    redirect(baseUrl("mechanic/index.php"), ["success" => "login_success"]);
+                    setFlashMessage('success', 'Login Successful');
+                    redirect(baseUrl("mechanic/index.php"), ["auth" => "1"]);
                 }
             }
         } else {
+            setFlashMessage('error', 'Invalid Credentials');
             redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
         }
     } catch (\Exception $e) {
+        setFlashMessage('error', 'Unexpected Error');
         redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error']);
     }
 }

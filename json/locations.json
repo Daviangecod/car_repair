@@ -1,149 +1,230 @@
 [
     {
-        "name": "Central Market"
+        "name": "Abong"
     },
     {
-        "name": "Yaounde Nsimalen International Airport"
+        "name": "Ahala"
     },
     {
-        "name": "National Museum"
-    },
-    {
-        "name": "Ahmadou Ahidjo Stadium"
-    },
-    {
-        "name": "University of Yaounde I"
-    },
-    {
-        "name": "Mvog-Betsi Zoo"
-    },
-    {
-        "name": "Bastos Residential Area"
-    },
-    {
-        "name": "Ekounou Neighborhood"
-    },
-    {
-        "name": "Cameroon National Assembly"
-    },
-    {
-        "name": "Lake Municipal Yaounde"
-    },
-    {
-        "name": "Mont F\u00e9b\u00e9 Hotel"
-    },
-    {
-        "name": "Ministry of Defense"
-    },
-    {
-        "name": "Cameroon International Conference Center"
-    },
-    {
-        "name": "Melen Medical Center"
-    },
-    {
-        "name": "Olympic Village"
-    },
-    {
-        "name": "Ngousso Neighborhood"
-    },
-    {
-        "name": "Efoulan Neighborhood"
-    },
-    {
-        "name": "Cameroon Baptist Convention Hospital"
-    },
-    {
-        "name": "Nkolbisson Market"
-    },
-    {
-        "name": "Central Post Office"
-    },
-    {
-        "name": "Biyem-Assi Neighborhood"
-    },
-    {
-        "name": "Essos Market"
-    },
-    {
-        "name": "Cit\u00e9 Verte"
-    },
-    {
-        "name": "Etoudi Presidential Palace"
-    },
-    {
-        "name": "Carrefour Nkolmesseng"
-    },
-    {
-        "name": "Mokolo Market"
-    },
-    {
-        "name": "Entr\u00e9e Simbock"
-    },
-    {
-        "name": "Mont\u00e9e Jouvence"
-    },
-    {
-        "name": "Biyem-Assi Lac"
-    },
-    {
-        "name": "Obili"
-    },
-    {
-        "name": "Carrefour Mvan"
-    },
-    {
-        "name": "Etoa-Meki"
-    },
-    {
-        "name": "Tsinga Neighborhood"
-    },
-    {
-        "name": "Etoudi"
-    },
-    {
-        "name": "Nkoabang"
-    },
-    {
-        "name": "Simpson"
-    },
-    {
-        "name": "Ngona"
-    },
-    {
-        "name": "Carrefour Nlongkak"
+        "name": "Anguissa"
     },
     {
         "name": "Awae Escalier"
     },
     {
-        "name": "Carrefour Etoa-Meki"
+        "name": "Balas Obili"
     },
     {
-        "name": "Mont\u00e9e Messa"
+        "name": "Bastos"
     },
     {
-        "name": "Camp Sic Mendong"
+        "name": "Biyem-Assi"
     },
     {
-        "name": "Ngoya"
+        "name": "Biyem-Assi Stade"
     },
     {
-        "name": "Carrefour Biyem-Assi"
+        "name": "Briqueterie"
     },
     {
-        "name": "Carrefour Obili"
+        "name": "Carrefour Banane"
     },
     {
-        "name": "Carrefour Santa Barbara"
+        "name": "Carrefour Bastos"
     },
     {
-        "name": "Kongossa Road"
+        "name": "Carrefour Emia"
     },
     {
-        "name": "Somwhere Land"
+        "name": "Carrefour Kameni"
     },
     {
-        "name": "Montee des Seours"
+        "name": "Carrefour Mvog-Mbi"
+    },
+    {
+        "name": "Centre Administratif"
+    },
+    {
+        "name": "Cit\u00e9 U"
+    },
+    {
+        "name": "Cit\u00e9 Verte"
+    },
+    {
+        "name": "Cit\u00e9 Verte March\u00e9"
+    },
+    {
+        "name": "Damas"
+    },
+    {
+        "name": "Dragage"
+    },
+    {
+        "name": "Efoulan"
+    },
+    {
+        "name": "Eloumden"
+    },
+    {
+        "name": "Entr\u00e9e Simbock"
+    },
+    {
+        "name": "Essos"
+    },
+    {
+        "name": "Etam Bafia"
+    },
+    {
+        "name": "Etoa Meki"
+    },
+    {
+        "name": "Etoudi"
+    },
+    {
+        "name": "Ewonkan"
+    },
+    {
+        "name": "Kondengui"
+    },
+    {
+        "name": "Madagascar"
+    },
+    {
+        "name": "Manguiers"
+    },
+    {
+        "name": "Massa"
+    },
+    {
+        "name": "Melen"
+    },
+    {
+        "name": "Mendong"
+    },
+    {
+        "name": "Messassi"
+    },
+    {
+        "name": "Minboman"
+    },
+    {
+        "name": "Mimboman"
+    },
+    {
+        "name": "Mont\u00e9e de Secours"
+    },
+    {
+        "name": "Mont\u00e9e Jouvence"
+    },
+    {
+        "name": "Mokolo"
+    },
+    {
+        "name": "Mvog-Ada"
+    },
+    {
+        "name": "Mvog-Atsa"
+    },
+    {
+        "name": "Mvog-Betsi"
+    },
+    {
+        "name": "Mvog-Betsi Zoo"
+    },
+    {
+        "name": "Mvog-Mbi"
+    },
+    {
+        "name": "Mvan"
+    },
+    {
+        "name": "Nkol-Eton"
+    },
+    {
+        "name": "Nkolbikok"
+    },
+    {
+        "name": "Nkolbisson"
+    },
+    {
+        "name": "Nkolkindi"
+    },
+    {
+        "name": "Nkolmesseng"
+    },
+    {
+        "name": "Nkolndongo"
+    },
+    {
+        "name": "Nkoleton"
+    },
+    {
+        "name": "Nkolfoulou"
+    },
+    {
+        "name": "Nkolondom"
+    },
+    {
+        "name": "Nkomo"
+    },
+    {
+        "name": "Nkoabang"
+    },
+    {
+        "name": "Ngonmen"
+    },
+    {
+        "name": "Ngousso"
+    },
+    {
+        "name": "Ngoa Ekelle"
+    },
+    {
+        "name": "Nlongkak"
+    },
+    {
+        "name": "Nsam"
+    },
+    {
+        "name": "Nsimeyong"
+    },
+    {
+        "name": "Nyom"
+    },
+    {
+        "name": "Obili"
+    },
+    {
+        "name": "Odza"
+    },
+    {
+        "name": "Olezoa"
+    },
+    {
+        "name": "Oyomabang"
+    },
+    {
+        "name": "Quartier General"
+    },
+    {
+        "name": "Rond-Point Damas"
+    },
+    {
+        "name": "Santa Barbara"
+    },
+    {
+        "name": "Shell Nsimeyong"
+    },
+    {
+        "name": "Shell Obili"
+    },
+    {
+        "name": "Simbok"
+    },
+    {
+        "name": "Tongolo"
+    },
+    {
+        "name": "Tsinga"
     }
 ]

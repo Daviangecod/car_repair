@@ -247,8 +247,8 @@ if (isset($_GET['id'])):
     <?php endif ?>
 <?php endif ?>
 
-<?php require_once errorNotification('method_not_allowed') ?>
-<?php require_once errorNotification('empty_fields') ?>
-<?php require_once errorNotification('shop_creation_failed'); ?>
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once $mechanicPath . '/templates/footer.php' ?>

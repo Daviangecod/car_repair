@@ -7,6 +7,9 @@ require_once basePath("/includes/constants.php") ;
 
 if(!$_GET['token']) {
     session_destroy();
+
+    session_start();
+    setFlashMessage('error', 'Method Not Allowed');
     redirect(baseUrl("auth/login.php"), ["error" => "method_not_allowed"]);
 }   
 else {
@@ -33,20 +36,27 @@ else {
               
                 if($loggedUserRole == "admin") {
 
+                    setFlashMessage('success', 'Email Verification Succesful');
                     redirect(baseUrl("admin/index.php"), ["success" => "email_verification_success"]);
                 }
 
                 elseif($loggedUserRole === "mechanic") {
+                    setFlashMessage('success', 'Email Verification Succesful');
                     redirect(baseUrl("mechanic/index.php"), ["success" => "email_verification_success"]);
                 }
 
             }
             else {
+
+                setFlashMessage('error', 'Email Verification Failed');
                 redirect(baseUrl("auth/email_verification.php"), ["error" => "email_verification_failed"]);
             }
       } 
       else {
             session_destroy();
+
+            session_start();
+            setFlashMessage('error', 'Invalid Request');
             redirect(baseUrl("auth/login.php"), ["error" => "invalid_request"]);
       }
 }

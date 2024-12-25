@@ -6,11 +6,13 @@ require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
 
 if(strtolower($_SERVER['REQUEST_METHOD']) !== "post" || !isset($_GET['id'])) {
+    setFlashMessage('error', 'Method Not Allowed');
     redirect(baseUrl('mechanic/shop/index.php'), ['error' => 'method_not_allowed']);
 }
 else {
 
     if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber']) || empty($_POST['description'])) {
+        setFlashMessage('error', 'One or More Fields are Empty');
         redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $_GET['id'], 'error' => 'empty_fields']);
     }
     else {
@@ -69,10 +71,12 @@ else {
             $uploadDir = basePath('/storage/mechanics/');
 
             if(!in_array($_FILES['image']['type'], $allowedTypes)){
+                setFlashMessage('error', 'Image type is invalid, use either a jpg, png or webp image');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'invalid_image_type']);
             }
 
             if($_FILES['image']['size'] > $maxSize) {
+                setFlashMessage('error', 'The size of the shop image is too large');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'image_too_large']);
             }
 
@@ -88,6 +92,7 @@ else {
             $move = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
             if(!$move) {
+                setFlashMessage('error', 'Unexpected Image Upload Error');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'unexpected_image_upload_error']);
             }
 
@@ -99,9 +104,11 @@ else {
         $result = mysqli_query($connection, $query);
 
         if($result) {
+            setFlashMessage('success', 'Shop Updated Successful');
             redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $_GET['id'], 'success' => 'shop_update_success']);
         }
         else {
+            setFlashMessage('error', 'Shop Update Failed');
             redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $_GET['id'], 'success' => 'shop_update_error']);
         }
 

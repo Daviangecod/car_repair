@@ -1,6 +1,8 @@
 <?php $pageTitle = "Email Verification"; ?>
 <?php require_once __DIR__ . "/path.php" ?>
 <?php require_once $templates . "/header.php"; ?>
+<?php require_once middlewarePath('check_auth_user') ?>
+<?php require_once middlewarePath('check_user_email_verified') ?>
 
 <main class="auth-main bg-light d-flex flex-column flex-md-row">
 
@@ -41,6 +43,8 @@
 
 </main>
 
-<?php require_once successNotification('email_verification_message_sent') ?>
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once $templates . "/footer.php"; ?>

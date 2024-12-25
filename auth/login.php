@@ -41,14 +41,8 @@
 </main>
 
 
-<?php require_once successNotification('registration_success') ?>
-<?php require_once successNotification('logout_success') ?>
-
-<?php require_once errorNotification('method_not_allowed') ?>
-<?php require_once errorNotification('empty_fields') ?>
-<?php require_once errorNotification('unexpected_error') ?>
-<?php require_once errorNotification('invalid_credentials') ?>
-<?php require_once errorNotification('invalid_request') ?>
-<?php require_once errorNotification('authentication_required') ?>
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once $templates . "/footer.php"; ?>

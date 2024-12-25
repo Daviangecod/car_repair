@@ -22,13 +22,13 @@
 
                         <div class="row gy-3 mb-4">
                             <div class="col-12 col-md-6">
-                                <label for="shopName" class="fw-bold">Shop Name</label>
-                                <input type="text" name="shopName" id="shopName" class="form-control" placeholder="Auto Masters">
+                                <label for="shopName" class="fw-bold">Shop Name <span class="text-danger">*</span></label>
+                                <input type="text" name="shopName" id="shopName" class="form-control" placeholder="Auto Masters" required>
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label for="location" class="fw-bold">Location</label>
-                                <select name="location" id="location" class="form-select">
+                                <label for="location" class="fw-bold">Location <span class="text-danger">*</span></label>
+                                <select name="location" id="location" class="form-select" required>
                                     <option selected hidden>Select Location</option>
                                     <option value="other">Other Location</option>
                                     <?php
@@ -59,13 +59,13 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="description" class="fw-bold">Description</label>
-                                <textarea name="description" id="description" class="form-control" style="min-height: 150px; resize:vertical;"></textarea>
+                                <label for="description" class="fw-bold">Description <span class="text-danger">*</span></label>
+                                <textarea name="description" id="description" class="form-control" style="min-height: 150px; resize:vertical;" required></textarea>
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label for="phoneNumber" class="fw-bold">Phone Number</label>
-                                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="600000000">
+                                <label for="phoneNumber" class="fw-bold">Phone Number <span class="text-danger">*</span></label>
+                                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="600000000" required>
                             </div>
 
                             <div class="col-12 col-md-6">
@@ -110,8 +110,8 @@
     </div>
 </div>
 
-<?php require_once errorNotification('method_not_allowed') ?>
-<?php require_once errorNotification('empty_fields') ?>
-<?php require_once errorNotification('shop_creation_failed'); ?>
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once $mechanicPath . '/templates/footer.php' ?>

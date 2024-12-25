@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/vendor.php';
 require_once $basePath . "/config/database.php";
 require_once $basePath . "/includes/constants.php";
@@ -27,6 +28,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 
 
         if (emailExist($email)) {
+            setFlashMessage('error', 'Please try using another email');
             redirect(baseUrl('auth/register.php'), ['error' => 'email_exist']);
         } else {
 
@@ -35,8 +37,10 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
             $result = mysqli_query($connection, $query);
 
             if ($result) {
+                setFlashMessage('success', 'Registration Success');
                 redirect(baseUrl('auth/login.php'), ['success' => 'registration_success']);
             } else {
+                setFlashMessage('error', 'Unexpected Error');
                 redirect(baseUrl('auth/register.php'), ['error' => 'unexpected_error']);
             }
         }

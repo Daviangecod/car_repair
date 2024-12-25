@@ -6,8 +6,7 @@ if(isset($_SESSION['loginId']) && isset($_SESSION['role'])) {
 
     $loggedUserRole = $_SESSION['role'];
 
-    if($loggedUserRole == "admin") {
-
+    if($loggedUserRole == "admin"){
         redirect(baseUrl("admin/index.php"), ["info" => "already_logged_in"]);
     }
 

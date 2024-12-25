@@ -1,4 +1,4 @@
-<?php $pageTitle = "Mechanic Stores"; ?>
+<?php $pageTitle = "Mechanic Services"; ?>
 
 <?php $mechanicPath = dirname(__DIR__, 1); ?>
 
@@ -7,9 +7,9 @@
 <?php require_once basePath('/config/database.php') ?>
 
 <?php 
-    $userId = $_SESSION['loginId'];
+    $shopId = $_GET['id'];
 
-    $query = "SELECT * FROM shops WHERE user_id = $userId";
+    $query = "SELECT * FROM services WHERE shop_id = $shopId";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
@@ -39,7 +39,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
-                            <span class="d-inline-block ms-1">Add Shop</span>
+                            <span class="d-inline-block ms-1">Add Service</span>
                         </a>
                     </div>
                     <div class="card-body">
@@ -49,6 +49,7 @@
                                     <th>Name</th>
                                     <th>Location</th>
                                     <th>Visibility</th>
+                                    <th>Website</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -58,6 +59,7 @@
                                     <th>Name</th>
                                     <th>Location</th>
                                     <th>Visibility</th>
+                                    <th>Website</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -71,13 +73,12 @@
                                             <td><?= $shop['name'] ?></td>
                                             <td><?= $shop['location'] ?></td>
                                             <td><?= $shop['visibility'] == true ? "<span class='badge bg-success'>visible</span>" : "<span class='badge bg-warning text-dark'>not visible</span>" ?></td>
+                                            <td><?= $shop['website'] ?></td>
                                             <td><?= $shop['created_at'] ?></td>
                                             <td>
                                                 <a href="<?= baseUrl('mechanic/shop/edit.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
 
                                                 <a href="<?= baseUrl('mechanic/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-warning">View</a>
-
-                                                <a href="<?= baseUrl('mechanic/service/index.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-primary" title="Manage Services">Services</a>
                                             </td>
                                         </tr>
 

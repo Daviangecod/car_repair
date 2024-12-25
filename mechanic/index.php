@@ -1,3 +1,4 @@
+
 <?php $pageTitle = "Home"; ?>
 
 <?php require_once __DIR__ . '/templates/header.php' ?>
@@ -135,7 +136,8 @@
     </div>
 </div>
 
-<?php require_once infoNotification('already_logged_in'); ?>
-<?php require_once successNotification('email_verification_success'); ?>
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once __DIR__ . '/templates/footer.php' ?>
