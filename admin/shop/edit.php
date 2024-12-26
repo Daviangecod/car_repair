@@ -1,20 +1,19 @@
 <?php $pageTitle = "Modify Store"; ?>
 
-<?php $mechanicPath = dirname(__DIR__, 1); ?>
+<?php $adminPath = dirname(__DIR__, 1); ?>
 
-<?php require_once $mechanicPath . '/templates/header.php' ?>
-<?php require_once $mechanicPath . '/templates/navbar.php' ?>
+<?php require_once $adminPath .'/templates/header.php' ?>
+<?php require_once $adminPath . '/templates/navbar.php' ?>
 <?php require_once basePath('/config/database.php') ?>
 
 <?php
 
 if (isset($_GET['id'])):
 
-    $userId = $_SESSION['loginId'];
     $shop = [];
     $shopId = $_GET["id"];
 
-    $query = "SELECT * FROM shops WHERE user_id = $userId AND id = $shopId";
+    $query = "SELECT * FROM shops WHERE id = $shopId";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) == 1):
@@ -24,7 +23,7 @@ if (isset($_GET['id'])):
 
         <div id="layoutSidenav">
 
-            <?php require_once $mechanicPath . '/templates/sidebar.php' ?>
+            <?php require_once $adminPath . '/templates/sidebar.php' ?>
 
             <div id="layoutSidenav_content" class="bg-light">
                 <main>
@@ -45,9 +44,9 @@ if (isset($_GET['id'])):
                         </div>
 
                         <div>
-                            <form action="<?= baseUrl('mechanic/shop/action/update.php') ?>" method="POST" id="addShopForm" enctype="multipart/form-data">
+                            <form action="<?= baseUrl('admin/shop/action/update.php') ?>" method="POST" id="addShopForm" enctype="multipart/form-data">
 
-                                <input type="hidden" name="id" value="<?= $shop['id'] ?>" />
+                                <input type="hidden" name="id" value="<?= $shop['id'] ?>">
                                 <div class="row gy-3 mb-4">
                                     <div class="col-12 col-md-6">
                                         <label for="shopName" class="fw-bold">Shop Name</label>
@@ -134,6 +133,22 @@ if (isset($_GET['id'])):
                                         <input type="file" name="image" id="image" class="form-control">
                                     </div>
 
+                                    <div class="col-12 col-md-6">
+                                        <label for="visibility" class="fw-bold">Visibility</label>
+                                        <select name="visibility" id="visibility" class="form-select">
+                                            <option value="" selected hidden>Select Visibility</option>
+
+                                            <?php if($shop['visibility'] == 1): ?>
+                                                <option value="visible" selected>Visible</option>
+                                                <option value="hidden">Hidden</option>
+                                            <?php else: ?>
+                                                <option value="visible">Visible</option>
+                                                <option value="hidden" selected>Hidden</option>
+                                            <?php endif ?>
+                                            
+                                        </select>
+                                    </div>
+
                                 </div>
 
                                 <button type="submit" class="btn btn-theme-primary">Update</button>
@@ -143,7 +158,7 @@ if (isset($_GET['id'])):
 
                     </div>
                 </main>
-                <?php require_once $mechanicPath . '/templates/copyright.php' ?>
+                <?php require_once $adminPath . '/templates/copyright.php' ?>
             </div>
         </div>
 
@@ -153,5 +168,6 @@ if (isset($_GET['id'])):
 <?php require_once notification('error') ?>
 <?php require_once notification('success') ?>
 <?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
-<?php require_once $mechanicPath . '/templates/footer.php' ?>
+<?php require_once $adminPath . '/templates/footer.php' ?>

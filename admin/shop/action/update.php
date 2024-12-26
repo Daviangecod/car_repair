@@ -7,20 +7,22 @@ require_once $basePath . "/includes/constants.php";
 
 if(strtolower($_SERVER['REQUEST_METHOD']) !== "post" || empty($_POST['id'])) {
     setFlashMessage('error', 'Method Not Allowed');
-    redirect(baseUrl('mechanic/shop/index.php'), ['error' => 'method_not_allowed']);
+    redirect(baseUrl('admin/shop/index.php'), ['error' => 'method_not_allowed']);
 }
 else {
+
     $shopId = $_POST['id'];
 
-    if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber']) || empty($_POST['description'])) {
+    if(empty($_POST['shopName']) || empty($_POST['location']) || empty($_POST['phoneNumber']) || empty($_POST['description']) || empty($_POST['visibility'])) {
         setFlashMessage('error', 'One or More Fields are Empty');
-        redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'error' => 'empty_fields']);
+        redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'error' => 'empty_fields']);
     }
     else {
 
         $shopName = mysqli_real_escape_string($connection, $_POST['shopName']);
         $phoneNumber = mysqli_real_escape_string($connection, $_POST['phoneNumber']);
         $description = mysqli_real_escape_string($connection, $_POST['description']);
+        $visibility = ($_POST['visibility'] == "visible") ? 1 : 0;
 
         if($_POST['location'] === "other") {
 
@@ -40,15 +42,12 @@ else {
             $location = mysqli_real_escape_string($connection, $_POST['location']);
         }
         
-        $userId = $_SESSION['loginId'];
         $website = mysqli_real_escape_string($connection, $_POST['website']) ?? NULL;
         $facebook = mysqli_real_escape_string($connection, $_POST['facebook']) ?? NULL;
         $twitter = mysqli_real_escape_string($connection, $_POST['twitter']) ?? NULL;
         $instagram = mysqli_real_escape_string($connection, $_POST['instagram']) ?? NULL;
         $tiktok = mysqli_real_escape_string($connection, $_POST['tiktok']) ?? NULL;
        
-
-  
 
 
         // Get current image from the db and set as default image instead of empty string
@@ -64,7 +63,6 @@ else {
         }
         
 
-
         if(isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
 
             $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
@@ -73,12 +71,13 @@ else {
 
             if(!in_array($_FILES['image']['type'], $allowedTypes)){
                 setFlashMessage('error', 'Image type is invalid, use either a jpg, png or webp image');
-                redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'error' => 'invalid_image_type']);
+                redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'error' => 'invalid_image_type']);
             }
 
             if($_FILES['image']['size'] > $maxSize) {
                 setFlashMessage('error', 'The size of the shop image is too large');
-                redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'error' => 'image_too_large']);
+                redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'error' => 'image_too_large']);
+                
             }
 
             // Get the file type
@@ -94,23 +93,23 @@ else {
 
             if(!$move) {
                 setFlashMessage('error', 'Unexpected Image Upload Error');
-                redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'error' => 'unexpected_image_upload_error']);
+                redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'error' => 'unexpected_image_upload_error']);
             }
 
         }
        
 
-        $query = "UPDATE shops SET user_id = $userId, location = '$location', phone_number = '$phoneNumber', website = '$website', facebook = '$facebook', twitter = '$twitter', instagram = '$instagram', tiktok = '$tiktok', image = '$fileName', description = '$description' WHERE id = $shopId";
+        $query = "UPDATE shops SET location = '$location', phone_number = '$phoneNumber', website = '$website', facebook = '$facebook', twitter = '$twitter', instagram = '$instagram', tiktok = '$tiktok', image = '$fileName', description = '$description', visibility = '$visibility' WHERE id = $shopId";
 
         $result = mysqli_query($connection, $query);
 
         if($result) {
             setFlashMessage('success', 'Shop Updated Successful');
-            redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'success' => 'shop_update_success']);
+            redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'success' => 'shop_update_success']);
         }
         else {
             setFlashMessage('error', 'Shop Update Failed');
-            redirect(baseUrl('mechanic/shop/edit.php'), ['id' => $shopId, 'error' => 'shop_update_error']);
+            redirect(baseUrl('admin/shop/edit.php'), ['id' => $shopId, 'error' => 'shop_update_error']);
         }
 
     }

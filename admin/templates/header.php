@@ -13,9 +13,15 @@
         <meta name="author" content="" />
         <title><?= siteName() ?> - <?= $pageTitle ?? "Dashboard" ?></title>
         <link href="<?= baseUrl('admin/assets/simple-datatables/style.min.css') ?>" rel="stylesheet" />
+        
         <link href="<?= baseUrl('admin/assets/css/admin.css') ?>" rel="stylesheet" />
         <link rel="stylesheet" href="<?= assetStyleUrl('main.css') ?>" />
+
         <link rel="stylesheet" href="<?= assetVendorUrl('sweetalert2/css/sweetalert2.min.css') ?>" />
+        <link rel="stylesheet" href="<?= assetVendorUrl('leaflet/leaflet.css') ?>" />
+
         <script src="<?= assetVendorUrl('sweetalert2/js/sweetalert2.all.min.js') ?>"></script>
+        <script src="<?= assetVendorUrl('leaflet/leaflet.js') ?>"></script>
+
     </head>
     <body class="sb-nav-fixed">

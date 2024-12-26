@@ -1,6 +1,6 @@
 <?php $pageTitle = "Home"; ?>
 <?php require_once __DIR__ . "/templates/header.php"; ?>
-<?php require_once __DIR__ . "/templates/navbar.php"; ?>
+
 
 <style>
     #map {
@@ -15,16 +15,17 @@
 
 if (isset($_GET['id'])):
 
-    $userId = $_SESSION['loginId'];
     $shop = [];
     $shopId = $_GET["id"];
 
-    $query = "SELECT * FROM shops WHERE user_id = $userId AND id = $shopId";
+    $query = "SELECT * FROM shops WHERE id = $shopId AND visibility = 1";
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) == 1):
         $shop = mysqli_fetch_assoc($result);
 ?>
+
+<?php require_once __DIR__ . "/templates/navbar.php"; ?>
 
 
 <main class="bg-light d-flex justify-content-md-center align-items-md-center py-5 py-md-0">
@@ -298,9 +299,16 @@ if (isset($_GET['id'])):
                     console.error(err.message);
                 }
             })();
-        </script>
-
-<?php endif ?>
-<?php endif ?>
+</script>
 
 <?php require_once __DIR__ . "/templates/footer.php"; ?>
+
+
+<?php else: ?>
+
+    <?php require_once basePath('/errors/404.php'); ?>
+
+
+<?php endif ?>
+<?php endif ?>
+

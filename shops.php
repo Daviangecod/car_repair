@@ -39,7 +39,7 @@
     // Get the shops with search condition applied
     $shops = [];
 
-    $query = "SELECT * FROM shops WHERE name LIKE '%$searchQuery%' ORDER BY id DESC LIMIT $offset, $limit"; 
+    $query = "SELECT * FROM shops WHERE name LIKE '%$searchQuery%' AND visibility = 1 ORDER BY id DESC LIMIT $offset, $limit"; 
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {

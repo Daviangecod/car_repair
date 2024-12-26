@@ -286,6 +286,38 @@ if(!function_exists('emailNotVerified')) {
     }
 }
 
+if(!function_exists('getUser')) {
+    function getUser(int $id) {
+        global $connection;
+
+        $query = "SELECT * FROM users WHERE id = $id";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $user = mysqli_fetch_assoc($result);
+            return $user;
+        }   
+
+        return false;
+    }
+}
+
+if(!function_exists('getUserRole')) {
+    function getUserRole(int $id) {
+        global $connection;
+
+        $query = "SELECT * FROM roles WHERE id = $id";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $role = mysqli_fetch_assoc($result);
+            return $role;
+        }   
+
+        return false;
+    }
+}
+
 
 if(!function_exists('uniqueId')) {
 

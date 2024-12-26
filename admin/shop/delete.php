@@ -1,14 +1,14 @@
-<?php $pageTitle = "Delete Language"; ?>
+<?php $pageTitle = "Delete Store"; ?>
 
-<?php $mechanicPath = dirname(__DIR__, 1); ?>
+<?php $adminPath = dirname(__DIR__, 1); ?>
 
-<?php require_once $mechanicPath . '/templates/header.php' ?>
-<?php require_once $mechanicPath . '/templates/navbar.php' ?>
+<?php require_once $adminPath .'/templates/header.php' ?>
+<?php require_once $adminPath . '/templates/navbar.php' ?>
 <?php require_once basePath('/config/database.php') ?>
 
 <div id="layoutSidenav">
 
-    <?php require_once $mechanicPath . '/templates/sidebar.php' ?>
+    <?php require_once $adminPath . '/templates/sidebar.php' ?>
 
     <div id="layoutSidenav_content" class="bg-light">
         <main>
@@ -24,12 +24,13 @@
                         <h6 class="mb-0">Confirm Delete</h6>
                     </div>
 
-                    <form action="<?= baseUrl('mechanic/hour/action/destroy.php') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= baseUrl('admin/shop/action/destroy.php') ?>" method="POST" enctype="multipart/form-data">
 
                         <input type="hidden" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : null ?>">
 
                         <div class="card-body">
-                            <p class="mb-0">Are you sure you want to delete this Working hour?</p>
+                            <p class="mb-0">Are you sure you want to delete this shop?</p>
+                            <p class="mb-0 text-danger">Deleting a shop will delete all related features</p>
                             <p>Type your password to validate the delete process.</p>
 
                             <label for="password" class="fw-bold">Password</label>
@@ -37,7 +38,7 @@
                         </div>
 
                         <div class="card-footer text-end">
-                            <a href="<?= baseUrl('mechanic/hour/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
+                            <a href="<?= baseUrl('admin/shop/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </form>
@@ -49,12 +50,13 @@
 
             </div>
         </main>
-        <?php require_once $mechanicPath . '/templates/copyright.php' ?>
+        <?php require_once $adminPath . '/templates/copyright.php' ?>
     </div>
 </div>
 
 <?php require_once notification('error') ?>
 <?php require_once notification('success') ?>
 <?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
-<?php require_once $mechanicPath . '/templates/footer.php' ?>
+<?php require_once $adminPath . '/templates/footer.php' ?>

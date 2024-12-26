@@ -1,4 +1,4 @@
-<?php $pageTitle = "All Stores"; ?>
+<?php $pageTitle = "All Users"; ?>
 
 <?php $adminPath = dirname(__DIR__, 1); ?>
 
@@ -8,13 +8,13 @@
 <?php require_once basePath('/config/database.php') ?>
 
 <?php 
-    $shops = [];
+    $users = [];
 
-    $query = "SELECT * FROM shops ORDER BY id DESC";
+    $query = "SELECT * FROM users ORDER BY id DESC";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
-        $shops = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 ?>
 
@@ -32,17 +32,17 @@
                 </ol>
             
                 <div class="card mb-4">
-                    <div class="card-header mb-0">
-                        <h2 class="fs-6">Manage Shops</h2>
+                    <div class="card-header">
+                        <h2 class="fs-6">Manage User Accounts</h2>
                     </div>
                     <div class="card-body">
                         <table class="table" id="datatablesSimple">
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>User</th>
-                                    <th>Location</th>
-                                    <th>Visibility</th>
+                                    <th>Type</th>
+                                    <th>Email Address</th>
+                                    <th>Status</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -50,30 +50,28 @@
                             <tfoot>
                                 <tr>
                                     <th>Name</th>
-                                    <th>User</th>
-                                    <th>Location</th>
-                                    <th>Visibility</th>
+                                    <th>Type</th>
+                                    <th>Email Address</th>
+                                    <th>Status</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php if(isset($shops) && count($shops) > 0): ?>
+                                <?php if(isset($users) && count($users) > 0): ?>
 
-                                    <?php foreach($shops as $shop): ?>
+                                    <?php foreach($users as $user): ?>
                                         
                                         <tr class="text-center">
-                                            <td><?= $shop['name'] ?></td>
-                                            <td><span class="fw-bold"><?= getUser($shop['user_id'])['name'] ?></span></td>
-                                            <td><?= $shop['location'] ?></td>
-                                            <td><?= $shop['visibility'] == true ? "<span class='badge bg-success'>visible</span>" : "<span class='badge bg-warning text-dark'>not visible</span>" ?></td>
-                                            <td><?= $shop['created_at'] ?></td>
+                                            <td><?= $user['name'] ?></td>
+                                            <td><?= getUserRole($user['role_id'])['name'] ?></td>
+                                            <td><?= $user['email'] ?></td>
+                                            <td><?= $user['active'] == true ? "<span class='badge bg-success'>active</span>" : "<span class='badge bg-danger text-dark'>inactive</span>" ?></td>
+                                            <td><?= $user['created_at'] ?></td>
                                             <td>
-                                                <a href="<?= baseUrl('admin/shop/edit.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
+                                                <a href="<?= baseUrl('admin/user/edit.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
 
-                                                <a href="<?= baseUrl('admin/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-warning">View</a>
-
-                                                <a href="<?= baseUrl('admin/shop/delete.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
+                                                <a href="<?= baseUrl('admin/user/delete.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>
                                         </tr>
 
@@ -90,10 +88,5 @@
         <?php require_once $adminPath . '/templates/copyright.php' ?>
     </div>
 </div>
-
-<?php require_once notification('error') ?>
-<?php require_once notification('success') ?>
-<?php require_once notification('info') ?>
-<?php require_once notification('warning') ?>
 
 <?php require_once $adminPath . '/templates/footer.php' ?>

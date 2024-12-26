@@ -49,6 +49,11 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                 redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
             }
 
+            if($user['active'] == 0) {
+                setFlashMessage('info', 'Your account has been deactivated, contact the administrators');
+                redirect(baseUrl('auth/login.php'), ['error' => 'deactivated_account']);
+            }
+
                 $_SESSION['loginId'] = $user['id'];
 
 

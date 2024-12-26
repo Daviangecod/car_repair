@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="card-footer text-end">
-                            <a href="<?= baseUrl('mechanic/service/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
+                            <a href="<?= baseUrl('mechanic/shop/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </form>
