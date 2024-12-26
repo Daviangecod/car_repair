@@ -51,7 +51,14 @@
 
     <div class="container bg-white h-full px-4" style="min-height: 100vh!important;">
 
-        <h1 class="mt-5 fs-3">Find Auto Shops</h1>
+        <h1 class="mt-5 mb-3 fs-3 text-center">Find Auto Shops</h1>
+
+        <div class="mb-5">
+            <form action="<?= baseUrl('shops.php') ?>" method="GET" class="d-flex">
+                <input type="search" name="search" id="search" placeholder="Search a Mechanic Shop..." class="form-control form-control-lg" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                <button type="submit" class="btn btn-lg btn-theme-primary d-inline-block ms-2">Search</button>
+            </form>
+        </div>
 
         <div class="row py-3">
 
@@ -61,16 +68,18 @@
 
                     <?php foreach ($shops as $shop): ?>
 
-                        <div class="card shadow-sm mb-5 rounded shop" style="overflow: hidden; cursor:pointer;" data-location="<?= str_replace(' ', '+', $shop['location']) ?>">
+                        <div class="card shadow-sm mb-5 rounded shop" style="overflow: hidden; cursor:pointer;" data-location="<?= $shop['location'] ?>">
 
                             <div class="row">
 
                                 <div class="col-12 col-md-3">
+                                   <div style="width: 100%; height: 250px; overflow: hidden;">
                                     <?php if ($shop['image'] == null): ?>
-                                        <img src="<?= assetImageUrl('no-image.jpg') ?>" alt="shop image" class="img-fluid border" style="object-fit:cover; width:100%; height:100%">
-                                    <?php else: ?>
-                                        <img src="<?= storageUrl('mechanics/') . $shop['image'] ?>" alt="shop image" class="img-fluid border" style="object-fit:cover; width:100%; height:100%">
-                                    <?php endif ?>
+                                            <img src="<?= assetImageUrl('no-image.jpg') ?>" alt="shop image" class="img-fluid border" style="object-fit:cover; width:100%; height:100%">
+                                        <?php else: ?>
+                                            <img src="<?= storageUrl('mechanics/') . $shop['image'] ?>" alt="shop image" class="img-fluid border" style="object-fit:cover; width:100%; height:100%">
+                                        <?php endif ?>
+                                   </div>
                                 </div>
 
                                 <div class="col-12 col-md-9 py-3">
@@ -117,22 +126,22 @@
                 <nav aria-label="...">
                     <ul class="pagination justify-content-center">
 
-                            <?php if($page > 1): ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="<?= baseUrl('shops.php', ['page' => ($page - 1)]) ?>">Previous</a>
-                                </li>
-                            <?php endif ?>
+             
+                            <li class="page-item <?= ($page > 1) ? '' : 'disabled' ?>">
+                                <a class="page-link" href="<?= baseUrl('shops.php', ['page' => ($page - 1)]) ?>">Previous</a>
+                            </li>
+                      
                
 
                             <?php  for ($i = 1; $i <= $totalPages; $i++): ?>
                                 <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" href="<?= baseUrl('shops.php', ['page' => $i]) ?>"><?= $i ?></a></li>
                             <?php endfor ?>
                                 
-                            <?php if ($page < $totalPages): ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="<?= baseUrl('shops.php', ['page' => $page + 1]) ?>">Next</a>
-                                </li>
-                            <?php endif ?>
+                     
+                            <li class="page-item <?= ($page < $totalPages) ? '' : 'disabled' ?>">
+                                <a class="page-link" href="<?= baseUrl('shops.php', ['page' => $page + 1]) ?>">Next</a>
+                            </li>
+                 
                   
                 
                     </ul>
@@ -169,11 +178,12 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Function to fetch latitude and longitude using Nominatim
-    async function fetchLatLon(location) {
-        // const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}+Yaounde+Cameroon`);
 
-        const response = await fetch(`https://geocode.maps.co/search?q=${encodeURIComponent(location)}+Yaounde+Cameroon&api_key=676c4d55c9d3e594532280egr337ea1`);
+    // Function to fetch latitude and longitude using Nominatim
+     async function fetchLatLon(location) {
+        // const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}&country=CM`);
+
+        const response = await fetch(`https://geocode.maps.co/search?q=${encodeURIComponent(location)}+CM&api_key=676c4d55c9d3e594532280egr337ea1`);
 
         const data = await response.json();
         if (data.length > 0) {
@@ -182,6 +192,50 @@
             throw new Error('Location not found');
         }
     }
+
+
+/*     // Function to fetch latitude and longitude using Nominatim
+    async function fetchLatLon(location) {
+
+        // const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}+Yaounde+Cameroon`);
+
+        const response = await fetch(`https://geocode.maps.co/search?q=${encodeURIComponent(location)}+Yaounde+Cameroon&api_key=676c4d55c9d3e594532280egr337ea1`);
+
+
+        const data = await response.json();
+        if (data.length > 0) {
+            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) };
+        } else {
+            throw new Error('Location not found');
+        }
+    } */
+
+
+    /**
+     * Fetch location data and return latitude and longitude for the given location.
+     * @param {string} location The location name to fetch.
+     * @returns {Promise<{lat: number, lon: number}>} The latitude and longitude of the location.
+     */    /*  async function fetchLatLon(location) {
+            try {
+                const response = await fetch('json/locations.json'); // Replace with the actual path to your JSON file
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                const data = await response.json();
+
+                // Find the requested location in the JSON data
+                const found = data.find(entry => entry.name.toLowerCase() === location.toLowerCase());
+                if (found) {
+                    return { lat: parseFloat(found.latitude), lon: parseFloat(found.longitude) };
+                } else {
+                    throw new Error(`Location "${location}" not found in the dataset.`);
+                }
+            } catch (error) {
+                //console.error('Error fetching or processing the data:', error);
+                throw error; // Re-throw the error for further handling
+            }
+        }  */
+
 
     // Variable to store the currently displayed marker
     let currentMarker = null;
@@ -206,6 +260,7 @@
                 // Center the map on the new marker
                 map.setView([lat, lon], 13);
             } catch (error) {
+                map.removeLayer(currentMarker);
                 console.error('Error fetching location:', error);
             }
         });

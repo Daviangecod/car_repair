@@ -1,224 +1,74 @@
 [
-    {
-        "name": "Ahala"
-    },
-    {
-        "name": "Anguissa"
-    },
-    {
-        "name": "Awae Escalier"
-    },
-    {
-        "name": "Balas Obili"
-    },
-    {
-        "name": "Bastos"
-    },
-    {
-        "name": "Biyem-Assi"
-    },
-    {
-        "name": "Biyem-Assi Stade"
-    },
-    {
-        "name": "Briqueterie"
-    },
-    {
-        "name": "Carrefour Bastos"
-    },
-    {
-        "name": "Carrefour Emia"
-    },
-    {
-        "name": "Carrefour Kameni"
-    },
-    {
-        "name": "Carrefour Mvog-Mbi"
-    },
-    {
-        "name": "Centre Administratif"
-    },
-    {
-        "name": "Cit\u00e9 U"
-    },
-    {
-        "name": "Cit\u00e9 Verte"
-    },
-    {
-        "name": "Cit\u00e9 Verte March\u00e9"
-    },
-    {
-        "name": "Damas"
-    },
-    {
-        "name": "Dragage"
-    },
-    {
-        "name": "Efoulan"
-    },
-    {
-        "name": "Eloumden"
-    },
-    {
-        "name": "Entr\u00e9e Simbock"
-    },
-    {
-        "name": "Essos"
-    },
-    {
-        "name": "Etam Bafia"
-    },
-    {
-        "name": "Etoa Meki"
-    },
-    {
-        "name": "Etoudi"
-    },
-    {
-        "name": "Ewonkan"
-    },
-    {
-        "name": "Kondengui"
-    },
-    {
-        "name": "Madagascar"
-    },
-    {
-        "name": "Manguiers"
-    },
-    {
-        "name": "Massa"
-    },
-    {
-        "name": "Melen"
-    },
-    {
-        "name": "Mendong"
-    },
-    {
-        "name": "Messassi"
-    },
-    {
-        "name": "Minboman"
-    },
-    {
-        "name": "Mimboman"
-    },
-    {
-        "name": "Mont\u00e9e de Secours"
-    },
-    {
-        "name": "Mont\u00e9e Jouvence"
-    },
-    {
-        "name": "Mokolo"
-    },
-    {
-        "name": "Mvog-Ada"
-    },
-    {
-        "name": "Mvog-Atsa"
-    },
-    {
-        "name": "Mvog-Betsi"
-    },
-    {
-        "name": "Mvog-Betsi Zoo"
-    },
-    {
-        "name": "Mvog-Mbi"
-    },
-    {
-        "name": "Mvan"
-    },
-    {
-        "name": "Nkol-Eton"
-    },
-    {
-        "name": "Nkolbikok"
-    },
-    {
-        "name": "Nkolbisson"
-    },
-    {
-        "name": "Nkolkindi"
-    },
-    {
-        "name": "Nkolmesseng"
-    },
-    {
-        "name": "Nkolndongo"
-    },
-    {
-        "name": "Nkoleton"
-    },
-    {
-        "name": "Nkolfoulou"
-    },
-    {
-        "name": "Nkolondom"
-    },
-    {
-        "name": "Nkomo"
-    },
-    {
-        "name": "Nkoabang"
-    },
-    {
-        "name": "Ngonmen"
-    },
-    {
-        "name": "Ngousso"
-    },
-    {
-        "name": "Ngoa Ekelle"
-    },
-    {
-        "name": "Nlongkak"
-    },
-    {
-        "name": "Nsam"
-    },
-    {
-        "name": "Nsimeyong"
-    },
-    {
-        "name": "Nyom"
-    },
-    {
-        "name": "Obili"
-    },
-    {
-        "name": "Odza"
-    },
-    {
-        "name": "Olezoa"
-    },
-    {
-        "name": "Oyomabang"
-    },
-    {
-        "name": "Quartier General"
-    },
-    {
-        "name": "Rond-Point Damas"
-    },
-    {
-        "name": "Santa Barbara"
-    },
-    {
-        "name": "Shell Nsimeyong"
-    },
-    {
-        "name": "Shell Obili"
-    },
-    {
-        "name": "Simbok"
-    },
-    {
-        "name": "Tongolo"
-    },
-    {
-        "name": "Tsinga"
-    }
+    {"name": "Ahala"},
+    {"name": "Anguissa"},
+    {"name": "Awae Escalier"},
+    {"name": "Bastos"},
+    {"name": "Biyem-Assi"},
+    {"name": "Biyem-Assi Stade"},
+    {"name": "Briqueterie"},
+    {"name": "Carrefour Bastos"},
+    {"name": "Carrefour Emia"},
+    {"name": "Carrefour Jouvence"},
+    {"name": "Carrefour Kameni"},
+    {"name": "Carrefour Mvog-Mbi"},
+    {"name": "Centre Administratif"},
+    {"name": "Cité U"},
+    {"name": "Cité Verte"},
+    {"name": "Cité Verte Marché"},
+    {"name": "Damas"},
+    {"name": "Dragage"},
+    {"name": "Efoulan"},
+    {"name": "Eloumden"},
+    {"name": "Entrée Simbock"},
+    {"name": "Essos"},
+    {"name": "Etam Bafia"},
+    {"name": "Etoa Meki"},
+    {"name": "Etoudi"},
+    {"name": "Ewonkan"},
+    {"name": "Kondengui"},
+    {"name": "Madagascar"},
+    {"name": "Manguiers"},
+    {"name": "Massa"},
+    {"name": "Melen"},
+    {"name": "Mendong"},
+    {"name": "Messassi"},
+    {"name": "Mimboman"},
+    {"name": "Montée de Secours"},
+    {"name": "Mokolo"},
+    {"name": "Mvog-Ada"},
+    {"name": "Mvog-Atsa"},
+    {"name": "Mvog-Betsi"},
+    {"name": "Mvog-Betsi Zoo"},
+    {"name": "Mvog-Mbi"},
+    {"name": "Mvan"},
+    {"name": "Nkol-Eton"},
+    {"name": "Nkolbikok"},
+    {"name": "Nkolbisson"},
+    {"name": "Nkolkindi"},
+    {"name": "Nkolmesseng"},
+    {"name": "Nkolndongo"},
+    {"name": "Nkoleton"},
+    {"name": "Nkolfoulou"},
+    {"name": "Nkolondom"},
+    {"name": "Nkomo"},
+    {"name": "Nkoabang"},
+    {"name": "Ngonmen"},
+    {"name": "Ngousso"},
+    {"name": "Ngoa Ekelle"},
+    {"name": "Nlongkak"},
+    {"name": "Nsam"},
+    {"name": "Nsimeyong"},
+    {"name": "Nyom"},
+    {"name": "Obili"},
+    {"name": "Odza"},
+    {"name": "Olezoa"},
+    {"name": "Oyomabang"},
+    {"name": "Quartier General"},
+    {"name": "Rond-Point Damas"},
+    {"name": "Santa Barbara"},
+    {"name": "Shell Nsimeyong"},
+    {"name": "Shell Obili"},
+    {"name": "Simbok"},
+    {"name": "Tongolo"},
+    {"name": "Tsinga"}
 ]

@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label for="location" class="fw-bold">Location <span class="text-danger">*</span></label>
+                                <label for="location" class="fw-bold">Location: <span class="text-danger">*</span></label>
                                 <select name="location" id="location" class="form-select" required>
                                     <option value="" selected hidden>Select Location</option>
                                     <option value="other">Other Location</option>
@@ -52,9 +52,9 @@
 
                                 </select>
                                             
-                                 <div class="mt-2">
+                                 <div class="mt-3">
                                     <!-- <label for="otherLocation">Other Location</label> -->
-                                    <input type="text" class="form-control d-none" name="otherLocation" id="otherLocation" placeholder="Type Location Here" />
+                                    <input type="text" class="form-control mb-3 d-none" name="otherLocation" id="otherLocation" placeholder="Type Location Here" />
                                  </div>
                             </div>
 

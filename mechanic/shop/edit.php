@@ -54,7 +54,7 @@ if (isset($_GET['id'])):
                                     </div>
 
                                     <div class="col-12 col-md-6">
-                                        <label for="location" class="fw-bold">Location</label>
+                                        <label for="location" class="fw-bold">Location: </label>
                                         <select name="location" id="location" class="form-select" required>
                                             <option value="" selected hidden>Select Location</option>
                                             <option value="other">Other Location</option>
