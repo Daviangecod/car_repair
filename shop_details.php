@@ -1,4 +1,4 @@
-<?php $pageTitle = "Home"; ?>
+<?php $pageTitle = "Shop Details"; ?>
 <?php require_once __DIR__ . "/templates/header.php"; ?>
 
 
@@ -38,7 +38,7 @@ if (isset($_GET['id'])):
 
             <div class="row" style="overflow: hidden;">
 
-                <div class="col-12 col-md-3 d-flex justify-content-start align-items-center ps-3">
+                <div class="col-12 col-md-3 d-flex justify-content-start align-items-center ps-4">
                     <div class="d-flex justify-content-center align-items-center border rounded" style="width: 250px; height:250px; overflow:hidden">
                         <?php if ($shop['image'] == null): ?>
                             <img src="<?= assetImageUrl('no-image.jpg') ?>" alt="shop image" class="img-fluid" style="object-fit:cover; width:100%; height:100%">
@@ -69,7 +69,7 @@ if (isset($_GET['id'])):
                         <?php if (!empty($shop['website'])): ?>
                             <a href="<?= $shop['website'] ?>" target="_blank" class="btn btn-warning">Visit Website</a>
                         <?php endif ?>
-                        <a href="#" class="btn btn-theme-primary">Book Appointment</a>
+                        <a href="<?= baseUrl('book_appointment.php', ['id' => $shop['id']]) ?>" target="_blank" class="btn btn-theme-primary">Book Appointment</a>
                     </div>
                 </div>
 
@@ -300,6 +300,11 @@ if (isset($_GET['id'])):
                 }
             })();
 </script>
+
+
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
 
 <?php require_once __DIR__ . "/templates/footer.php"; ?>
 

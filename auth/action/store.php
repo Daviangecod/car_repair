@@ -11,6 +11,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 } else {
 
     if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['password'])) {
+        setFlashMessage('success', 'One or more fields are empty');
         redirect(baseUrl('auth/register.php'), ['error' => 'empty_fields']);
     } else {
 

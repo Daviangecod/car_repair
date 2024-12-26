@@ -10,7 +10,9 @@
 
     <section class="form-area py-5 px-2 d-flex flex-column justify-content-md-center">
 
-        <h1 class="text-center mb-4">User Registration</h1>
+        <h1 class="text-center mb-2">User Registration</h1>
+
+        <p class="text-center mb-4">Register as a customer or a mechanic</p>
 
         <form action="<?= baseUrl('auth/action/store.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
 
@@ -60,5 +62,6 @@
 <?php require_once notification('error') ?>
 <?php require_once notification('success') ?>
 <?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
 <?php require_once $templates . "/footer.php"; ?>
