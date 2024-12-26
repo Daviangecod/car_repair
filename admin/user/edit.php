@@ -114,5 +114,6 @@
 <?php require_once notification('error') ?>
 <?php require_once notification('success') ?>
 <?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
 <?php require_once $adminPath . '/templates/footer.php' ?>

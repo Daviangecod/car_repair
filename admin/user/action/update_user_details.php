@@ -11,8 +11,12 @@ if(strtolower($_SERVER['REQUEST_METHOD']) !== "post" || empty($_POST['id'])) {
     redirect(baseUrl('admin/user/index.php'), ['error' => 'method_not_allowed']);
 }
 else {
-
     $userId = $_POST['id'];
+
+    if($userId == $_SESSION['loginId']) {
+        setFlashMessage('error', 'Update your profile');
+        redirect(baseUrl('admin/profile.php'), ['error' => 'update_profile']);
+    }
 
     if(empty($_POST['fullName']) || empty($_POST['email'])) {
         setFlashMessage('error', 'One or More Fields are Empty');

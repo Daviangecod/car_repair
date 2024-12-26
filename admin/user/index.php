@@ -76,7 +76,14 @@
                                                     <a href="<?= baseUrl('admin/user/edit.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
                                                 <?php endif ?>
 
-                                                <a href="<?= baseUrl('admin/user/delete.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
+
+                                                <?php if($_SESSION['loginId'] !== $user['id']): ?>
+
+                                                    <a href="<?= baseUrl('admin/user/delete.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
+
+                                                <?php endif ?>
+
+                                              
                                             </td>
                                         </tr>
 
@@ -93,5 +100,10 @@
         <?php require_once $adminPath . '/templates/copyright.php' ?>
     </div>
 </div>
+
+<?php require_once notification('error') ?>
+<?php require_once notification('success') ?>
+<?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
 <?php require_once $adminPath . '/templates/footer.php' ?>
