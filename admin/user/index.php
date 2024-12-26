@@ -64,12 +64,17 @@
                                         
                                         <tr class="text-center">
                                             <td><?= $user['name'] ?></td>
-                                            <td><?= getUserRole($user['role_id'])['name'] ?></td>
+                                            <td><?= getRole($user['role_id'])['name'] ?></td>
                                             <td><?= $user['email'] ?></td>
-                                            <td><?= $user['active'] == true ? "<span class='badge bg-success'>active</span>" : "<span class='badge bg-danger text-dark'>inactive</span>" ?></td>
+                                            <td><?= $user['active'] == true ? "<span class='badge bg-success'>active</span>" : "<span class='badge bg-danger text-white'>inactive</span>" ?></td>
                                             <td><?= $user['created_at'] ?></td>
                                             <td>
-                                                <a href="<?= baseUrl('admin/user/edit.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
+                                                
+                                                <?php if($_SESSION['loginId'] == $user['id']): ?>
+                                                    <a href="<?= baseUrl('admin/profile.php') ?>" class="btn btn-sm btn-info">Profile</a>
+                                                <?php else: ?>
+                                                    <a href="<?= baseUrl('admin/user/edit.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
+                                                <?php endif ?>
 
                                                 <a href="<?= baseUrl('admin/user/delete.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>

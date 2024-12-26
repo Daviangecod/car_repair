@@ -2,6 +2,7 @@
 $basePath = dirname(__DIR__, 1);
 require_once $basePath . "/config/settings.php";
 require_once $basePath . "/config/mail.php";
+require_once __DIR__ . "/constants.php";
 
 
 
@@ -302,8 +303,8 @@ if(!function_exists('getUser')) {
     }
 }
 
-if(!function_exists('getUserRole')) {
-    function getUserRole(int $id) {
+if(!function_exists('getRole')) {
+    function getRole(int $id) {
         global $connection;
 
         $query = "SELECT * FROM roles WHERE id = $id";
@@ -317,6 +318,154 @@ if(!function_exists('getUserRole')) {
         return false;
     }
 }
+
+if(!function_exists('getUserRole')) {
+    function getUserRole(int $userId) {
+        global $connection;
+
+        $query = "SELECT * FROM users WHERE id = $userId";
+        $result = mysqli_query($connection, $query);
+        $data = mysqli_fetch_assoc($result);
+        $roleId = $data['role_id'];
+
+        // Role query
+        $query = "SELECT * FROM roles WHERE id = $roleId";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $role = mysqli_fetch_assoc($result);
+            return $role;
+        }   
+
+        return false;
+    }
+}
+
+
+
+if(!function_exists('totalUsers')) {
+    function totalUsers() {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM users";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
+
+if(!function_exists('totalBlockedAccounts')) {
+    function totalBlockedAccounts() {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM users WHERE active = 0";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
+if(!function_exists('totalActiveAccounts')) {
+    function totalActiveAccounts() {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM users WHERE active = 1";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
+if(!function_exists('totalListedShops')) {
+    function totalListedShops() {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM shops WHERE visibility = 1";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+if(!function_exists('totalAdmins')) {
+    function totalAdmins() {
+        global $connection;
+
+        $role = ADMIN;
+
+        $query = "SELECT COUNT(*) as total FROM users WHERE role_id = $role";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+if(!function_exists('totalMechanics')) {
+    function totalMechanics() {
+        global $connection;
+
+        $role = MECHANIC;
+
+        $query = "SELECT COUNT(*) as total FROM users WHERE role_id = $role";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
+if(!function_exists('saveLoginActivity')) {
+    function saveLoginActivity(int $userId, string $ipAddress, int $status, string $userAgent) {
+        global $connection;
+
+        $query = "INSERT INTO login_activities (user_id, ip_address, status, user_agent) 
+                            VALUES ($userId, '$ipAddress', '$status', '$userAgent')";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            return true;
+        }   
+
+        return false;
+    }
+}
+
+
+
 
 
 if(!function_exists('uniqueId')) {

@@ -45,11 +45,17 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 
             // Verify Password
             if (password_verify($password, $hashedPassword) == false) {
+
+                saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 0, $_SERVER['HTTP_USER_AGENT']);
+
                 setFlashMessage('error', 'Invalid Credentials');
                 redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
             }
 
             if($user['active'] == 0) {
+
+                saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 0, $_SERVER['HTTP_USER_AGENT']);
+
                 setFlashMessage('info', 'Your account has been deactivated, contact the administrators');
                 redirect(baseUrl('auth/login.php'), ['error' => 'deactivated_account']);
             }
@@ -60,6 +66,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                 // Check role and redirect to dashboard
 
                 if ($user['role_id'] == ADMIN) {
+
+                    saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 1, $_SERVER['HTTP_USER_AGENT']);
 
                     // Save Admin Full Names in Session
                     $admin = [];
@@ -85,6 +93,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 
                 } elseif ($user['role_id'] == MECHANIC) {
 
+                    saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 1, $_SERVER['HTTP_USER_AGENT']);
 
                     // Save Mechanic Full Names in Session
                     $mechanic = [];
@@ -109,6 +118,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
             
         } 
     } catch (\Exception $e) {
+
+        //dump($e->getMessage()); exit;
         setFlashMessage('error', 'Unexpected Error');
         redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error']);
     }
