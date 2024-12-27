@@ -1,14 +1,14 @@
 <?php $pageTitle = "Delete Store"; ?>
 
-<?php $adminPath = dirname(__DIR__, 1); ?>
+<?php $mechanicPath = dirname(__DIR__, 1); ?>
 
-<?php require_once $adminPath .'/templates/header.php' ?>
-<?php require_once $adminPath . '/templates/navbar.php' ?>
+<?php require_once $mechanicPath .'/templates/header.php' ?>
+<?php require_once $mechanicPath . '/templates/navbar.php' ?>
 <?php require_once basePath('/config/database.php') ?>
 
 <div id="layoutSidenav">
 
-    <?php require_once $adminPath . '/templates/sidebar.php' ?>
+    <?php require_once $mechanicPath . '/templates/sidebar.php' ?>
 
     <div id="layoutSidenav_content" class="bg-light">
         <main>
@@ -24,7 +24,7 @@
                         <h6 class="mb-0">Confirm Delete</h6>
                     </div>
 
-                    <form action="<?= baseUrl('admin/booking/action/destroy.php') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= baseUrl('mechanic/booking/action/destroy.php') ?>" method="POST" enctype="multipart/form-data">
 
                         <input type="hidden" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : null ?>">
 
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="card-footer text-end">
-                            <a href="<?= baseUrl('admin/booking/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
+                            <a href="<?= baseUrl('mechanic/booking/index.php') ?>" class="btn btn-theme-primary">Cancel</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </form>
@@ -49,7 +49,7 @@
 
             </div>
         </main>
-        <?php require_once $adminPath . '/templates/copyright.php' ?>
+        <?php require_once $mechanicPath . '/templates/copyright.php' ?>
     </div>
 </div>
 
@@ -58,4 +58,4 @@
 <?php require_once notification('info') ?>
 <?php require_once notification('warning') ?>
 
-<?php require_once $adminPath . '/templates/footer.php' ?>
+<?php require_once $mechanicPath . '/templates/footer.php' ?>

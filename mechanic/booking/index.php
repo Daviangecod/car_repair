@@ -106,6 +106,8 @@
                                             <td><?= $booking['preferred_date'] ?></td>
                                             <td>
                                                 <a href="<?= baseUrl('mechanic/booking/view.php', ['id' => $booking['id']]) ?>" class="btn btn-sm btn-primary">View</a>
+
+                                                <a href="<?= baseUrl('mechanic/booking/delete.php', ['id' => $booking['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>
                                         </tr>
 
@@ -125,5 +127,6 @@
 <?php require_once notification('error') ?>
 <?php require_once notification('success') ?>
 <?php require_once notification('info') ?>
+<?php require_once notification('warning') ?>
 
 <?php require_once $mechanicPath . '/templates/footer.php' ?>

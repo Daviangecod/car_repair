@@ -89,6 +89,8 @@
                                             <td><?= formattedDayDateTimeString($booking['preferred_date']) ?></td>
                                             <td>
                                                 <a href="<?= baseUrl('admin/booking/view.php', ['id' => $booking['id']]) ?>" class="btn btn-sm btn-primary">View</a>
+
+                                                <a href="<?= baseUrl('admin/booking/delete.php', ['id' => $booking['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>
                                         </tr>
 

@@ -387,6 +387,32 @@ if(!function_exists('getShopUser')) {
     }
 }
 
+
+
+if(!function_exists('shopBelongsToUser')) {
+    function shopBelongsToUser(int $userId, int $shopId) {
+        global $connection;
+
+        $query = "SELECT
+                users.id,
+                shops.user_id,
+                shops.id
+            FROM users
+            JOIN shops
+            ON users.id = shops.user_id
+            WHERE users.id = $userId AND shops.id = $shopId
+        ";
+        
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            return true;
+        }   
+
+        return false;
+    }
+}
+
 if(!function_exists('getRole')) {
     function getRole(int $id) {
         global $connection;

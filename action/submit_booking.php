@@ -37,7 +37,7 @@ else {
             $result = mysqli_query($connection, $query);
 
             if ($result) {
-                setFlashMessage('success', 'Booking Appointment Submitted');
+                setFlashMessage('success', 'Booking Appointment Submitted, Please wait patiently you will recieve a Confirmation Email!');
                 redirect(baseUrl('shop_details.php'), ['id' => $shopId ]);
             } else {
                 setFlashMessage('error', 'Booking Appointment not submitted');
