@@ -74,7 +74,7 @@
                                             <td>
                                                 <a href="<?= baseUrl('mechanic/shop/edit.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-theme-primary">Edit</a>
 
-                                                <a href="<?= baseUrl('mechanic/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-warning">View</a>
+                                                <a href="<?= baseUrl('mechanic/shop/view.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-primary">View</a>
 
                                                 <a href="<?= baseUrl('mechanic/shop/delete.php', ['id' => $shop['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
                                             </td>

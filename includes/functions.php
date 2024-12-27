@@ -246,6 +246,59 @@ if(!function_exists("sendEmailVerificationMail")) {
 }
 
 
+if(!function_exists("bookingStatusConfirmedMessage")) {
+    function bookingStatusConfirmedMessage($date, $service) {
+
+        $formattedDate = formattedDayDateTimeString($date);
+
+        $message = <<<MESSAGE
+            <p>We are pleased to inform you that your booking for $service on $formattedDate  has been confirmed.</p>
+            <p>Thank you for choosing our service. We look forward to serving you!</p>
+        MESSAGE;
+    
+        return $message;
+    }
+}
+
+if(!function_exists("bookingStatusDeclinedMessage")) {
+    function bookingStatusDeclinedMessage($date, $service) {
+
+        $formattedDate = formattedDayDateTimeString($date);
+
+        $message = <<<MESSAGE
+                <p>We regret to inform you that your booking for $service on $formattedDate has been declined.</p>
+                <p> Please contact us at info@dcars.com for further assistance or to reschedule.</p>
+                <p>We apologize for any inconvenience caused.</p>
+        MESSAGE;
+    
+        return $message;
+    }
+}
+
+
+if(!function_exists("sendBookingStatusEmail")) {
+    function sendBookingStatusEmail(string $email, string $name, string $date, string $service, string $status)
+    {
+
+        $email = $email;
+        $subject = 'Verify your email address';
+        $title = "Email Verification";
+        $greeting = "Hello ". ucwords($name) . "!";
+
+        if($status == DECLINED) {
+            $body = bookingStatusDeclinedMessage($date, $service);
+        }
+        elseif($status == CONFIRMED) {
+            $body = bookingStatusConfirmedMessage($date, $service);
+        }
+        
+        $message = mailTemplate($title, $greeting, $body);
+        
+        return sendMail($email, $subject, $message);
+    }
+}
+
+
 
 if(!function_exists('validateEmail')) {
 
@@ -448,6 +501,23 @@ if(!function_exists('totalMechanics')) {
 }
 
 
+if(!function_exists('totalBookings')) {
+    function totalBookings() {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM bookings";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
 if(!function_exists('saveLoginActivity')) {
     function saveLoginActivity(int $userId, string $ipAddress, int $status, string $userAgent) {
         global $connection;
@@ -465,8 +535,29 @@ if(!function_exists('saveLoginActivity')) {
 }
 
 
+if(!function_exists('getShop')) {
+    function getShop(int $id) {
+        global $connection;
+
+        $query = "SELECT * FROM shops WHERE id = $id";
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $shop = mysqli_fetch_assoc($result);
+            return $shop;
+        }   
+
+        return false;
+    }
+}
 
 
+if(!function_exists('formattedDayDateTimeString')) {
+    function formattedDayDateTimeString($dateTime) {
+        $date = new \DateTime($dateTime);
+        return $date->format("l, F j, Y - H:i a");
+    }
+}
 
 if(!function_exists('uniqueId')) {
 
