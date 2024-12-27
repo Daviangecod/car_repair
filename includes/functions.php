@@ -356,6 +356,37 @@ if(!function_exists('getUser')) {
     }
 }
 
+if(!function_exists('getShopUser')) {
+    function getShopUser(int $shopId) {
+        global $connection;
+
+        $query = "SELECT
+                users.name as name,
+                users.role_id as role_id,
+                users.email as email,
+                users.email_verified_at as email_verified_at,
+                users.password as password,
+                users.token as token,
+                users.active as active,
+                users.created_at as created_at,
+                users.updated_at as updated_at
+            FROM users
+            JOIN shops
+            ON users.id = shops.user_id
+            WHERE shops.id = $shopId
+        ";
+        
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $user = mysqli_fetch_assoc($result);
+            return $user;
+        }   
+
+        return false;
+    }
+}
+
 if(!function_exists('getRole')) {
     function getRole(int $id) {
         global $connection;
