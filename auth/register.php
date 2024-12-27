@@ -12,7 +12,7 @@
 
         <h1 class="text-center mb-2">User Registration</h1>
 
-        <p class="text-center mb-4">Register as a customer or a mechanic</p>
+        <p class="text-center mb-4">Register as a mechanic and list your store</p>
 
         <form action="<?= baseUrl('auth/action/store.php') ?>" class="w-75 mx-auto" method="POST" autocomplete="off">
 
@@ -30,16 +30,6 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Your Password" />
             </div>
-
-
-            <!-- <div class="form-group mb-4">
-                <label for="userType">User Type</label>
-                <select class="form-control form-control-lg" name="userType" id="userType"> 
-                    <option value="" selected hidden>Select a User Type</option>
-                    <option value="client">Client</option>
-                    <option value="mechanic">Mechanic</option>
-                </select>
-            </div> -->
 
             <button type="submit" class="btn btn-lg btn-theme-primary text-white d-block w-100">Create Account</button>
 
