@@ -281,8 +281,8 @@ if(!function_exists("sendBookingStatusEmail")) {
     {
 
         $email = $email;
-        $subject = 'Verify your email address';
-        $title = "Email Verification";
+        $subject = 'Your D-Cars Booking Status';
+        $title = "Booking Appointment Status";
         $greeting = "Hello ". ucwords($name) . "!";
 
         if($status == DECLINED) {
