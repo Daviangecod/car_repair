@@ -518,6 +518,76 @@ if(!function_exists('totalBookings')) {
 }
 
 
+
+if(!function_exists('totalUserBookings')) {
+    function totalUserBookings(int $id) {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM bookings
+                 JOIN shops 
+                 ON bookings.shop_id = shops.id
+                 JOIN users
+                 ON shops.user_id = users.id
+                 WHERE users.id = $id";
+
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+if(!function_exists('totalUserPendingBookings')) {
+    function totalUserPendingBookings(int $id) {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM bookings
+                 JOIN shops 
+                 ON bookings.shop_id = shops.id
+                 JOIN users
+                 ON shops.user_id = users.id
+                 WHERE users.id = $id AND bookings.status = 'pending'";
+
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+if(!function_exists('totalUserConfirmedBookings')) {
+    function totalUserConfirmedBookings(int $id) {
+        global $connection;
+
+        $query = "SELECT COUNT(*) as total FROM bookings
+                 JOIN shops 
+                 ON bookings.shop_id = shops.id
+                 JOIN users
+                 ON shops.user_id = users.id
+                 WHERE users.id = $id AND bookings.status = 'confirmed'";
+
+        $result = mysqli_query($connection, $query);
+        
+        if($result) {
+            $data = mysqli_fetch_assoc($result);
+            return $data['total'];
+        }   
+
+        return 0;
+    }
+}
+
+
+
+
 if(!function_exists('saveLoginActivity')) {
     function saveLoginActivity(int $userId, string $ipAddress, int $status, string $userAgent) {
         global $connection;

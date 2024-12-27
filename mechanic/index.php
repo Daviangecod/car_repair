@@ -108,6 +108,72 @@
                         </a>
                     </div>
 
+                    <div class="col-xl-4 col-md-6">
+                        <a href="#" class="text-decoration-none text-black">
+                            <div class="card  mb-4" style="min-height: 100px;">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                                            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                                        </svg>
+                                        <span class="d-inline-block ms-1">Total Bookings</span>
+                                    </div>
+
+                                    <div class="fs-5">
+                                        <?= totalUserBookings($_SESSION['loginId']) ?? 0  ?>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                        <a href="#" class="text-decoration-none text-black">
+                            <div class="card  mb-4" style="min-height: 100px;">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                                            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                                        </svg>
+                                        <span class="d-inline-block ms-1">Total Pending Bookings</span>
+                                    </div>
+
+                                    <div class="fs-5">
+                                        <?= totalUserPendingBookings($_SESSION['loginId']) ?? 0  ?>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                        <a href="#" class="text-decoration-none text-black">
+                            <div class="card  mb-4" style="min-height: 100px;">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                                            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                                        </svg>
+                                        <span class="d-inline-block ms-1">Total Confirmed Bookings</span>
+                                    </div>
+
+                                    <div class="fs-5">
+                                        <?= totalUserConfirmedBookings($_SESSION['loginId']) ?? 0  ?>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
 
                 <div class="row">
