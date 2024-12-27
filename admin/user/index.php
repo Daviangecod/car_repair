@@ -81,7 +81,16 @@
 
                                                     <a href="<?= baseUrl('admin/user/delete.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-danger">Delete</a>
 
+                                                    <?php if($user['active'] == false): ?>
+                                                        <a href="<?= baseUrl('admin/user/action/activate.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-success">Activate</a>
+                                                    <?php endif ?>
+    
+                                                    <?php if($user['active'] == true): ?>
+                                                        <a href="<?= baseUrl('admin/user/action/deactivate.php', ['id' => $user['id']]) ?>" class="btn btn-sm btn-warning">Deactivate</a>
+                                                    <?php endif ?>
+
                                                 <?php endif ?>
+
 
                                               
                                             </td>
