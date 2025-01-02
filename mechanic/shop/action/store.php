@@ -20,10 +20,12 @@ else {
         $shopName = mysqli_real_escape_string($connection, $_POST['shopName']);
         $phoneNumber = mysqli_real_escape_string($connection, $_POST['phoneNumber']);
         $description = mysqli_real_escape_string($connection, $_POST['description']);
+        $old = $_POST; // to save old values
 
         if($_POST['location'] === "other") {
 
             if(empty($_POST['otherLocation'])) {
+                $_SESSION['old'] == $old;
                 setFlashMessage('error', 'Fill in the other location');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'empty_fields']);
             }
@@ -62,11 +64,13 @@ else {
             $uploadDir = basePath('/storage/mechanics/');
 
             if(!in_array($_FILES['image']['type'], $allowedTypes)){
+                $_SESSION['old'] == $old;
                 setFlashMessage('error', 'Image type is invalid, use either a jpg, png or webp image');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'invalid_image_type']);
             }
 
             if($_FILES['image']['size'] > $maxSize) {
+                $_SESSION['old'] == $old;
                 setFlashMessage('error', 'The size of the shop image is too large');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'image_too_large']);
             }
@@ -83,6 +87,7 @@ else {
             $move = move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
             if(!$move) {
+                $_SESSION['old'] == $old;
                 setFlashMessage('error', 'Unexpected Image Upload Error');
                 redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'unexpected_image_upload_error']);
             }
@@ -99,6 +104,7 @@ else {
             redirect(baseUrl('mechanic/shop/index.php'), ['success' => 'shop_creation_success']);
         }
         else {
+            $_SESSION['old'] == $old;
             setFlashMessage('error', 'Shop Creation Failed');
             redirect(baseUrl('mechanic/shop/create.php'), ['error' => 'shop_creation_failed']);
         }

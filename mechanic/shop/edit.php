@@ -131,7 +131,7 @@ if (isset($_GET['id'])):
 
                                     <div class="col-12 col-md-6">
                                         <label for="image" class="fw-bold">Select Store Image (512 x 512)</label>
-                                        <input type="file" name="image" id="image" class="form-control">
+                                        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp" class="form-control">
                                     </div>
 
                                 </div>

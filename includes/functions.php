@@ -789,3 +789,9 @@ function formatTime(string $time): string
     $dateTime = new DateTime($time);
     return $dateTime->format('h:i A');
 }
+
+
+// Function to get old input value or return default
+function old($key, $default = '') {
+    return isset($_POST[$key]) ? htmlspecialchars($_POST[$key]) : htmlspecialchars($default);
+}

@@ -8,7 +8,9 @@
 
 <?php 
     $workingHours = [];
-    $query = "SELECT * FROM hours";
+
+    $authUser = $_SESSION['loginId'];
+    $query = "SELECT * FROM hours WHERE user_id = $authUser";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {

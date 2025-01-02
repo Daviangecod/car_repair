@@ -58,7 +58,8 @@
 
                                         $shops = [];
 
-                                        $query = "SELECT * FROM shops";
+                                        $userId = $_SESSION['loginId'];
+                                        $query = "SELECT * FROM shops WHERE user_id = $userId";
                                         $result = mysqli_query($connection, $query);
 
                                         if(mysqli_num_rows($result) > 0) {
