@@ -8,7 +8,8 @@
 
 <?php 
     
-    $query = "SELECT * FROM services";
+    $authUser = $_SESSION['loginId'];
+    $query = "SELECT * FROM services WHERE user_id = $authUser";
     $result = mysqli_query($connection, $query);
 
     if(mysqli_num_rows($result) > 0) {
