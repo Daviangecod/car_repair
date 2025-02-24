@@ -7,7 +7,7 @@ if(!function_exists("getConfig")){
         $siteConfig = [
             'site_name' => "D-Cars",
             'admin_email' => "noreply@dcars.com",
-            'base_url' => "http://localhost/car_repair",
+            'base_url' => "http://localhost/dcars",
         ];
                 
         return $siteConfig[$key] ?? null; 

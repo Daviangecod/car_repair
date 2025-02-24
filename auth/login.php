@@ -22,6 +22,7 @@
                 <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Your Password" />
             </div>
 
+            <p class="mt-4 text-center">Forgot password? <a href="<?= baseUrl('auth/forgot_password.php') ?>">Forgot password</a></p>
             <button type="submit" class="btn btn-lg btn-theme-primary text-white d-block w-100">Login</button>
 
             <p class="mt-4 text-center">No Account? <a href="<?= baseUrl('auth/register.php') ?>">Create an Account</a></p>

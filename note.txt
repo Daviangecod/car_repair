@@ -1,0 +1,5 @@
+There is a dcars.sql file in the database folder
+not sure why but things are really slow!
+I'll disconnect! That my make your computer perform better
+Create a database in phpmyadmin called dcars
+import my "dcars.sql" in to the database!

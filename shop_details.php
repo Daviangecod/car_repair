@@ -248,6 +248,30 @@ if (isset($_GET['id'])):
             <div class="card-body" id="map"></div>
         </div>
 
+        <!-- Review and Rating Form -->
+        <div class="card shadow-sm mb-5 rounded py-3 px-5">
+            <div class="card-header bg-white border-bottom-0 text-uppercase fw-bold fs-2">Leave a Review</div>
+            <div class="card-body">
+                <form action="submit_review.php" method="POST">
+                    <input type="hidden" name="shop_id" value="<?= $shop['id'] ?>">
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <select class="form-select" id="rating" name="rating" required>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="review" class="form-label">Review</label>
+                        <textarea class="form-control" id="review" name="review" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-theme-primary">Submit Review</button>
+                </form>
+            </div>
+        </div>
 
     </div>
 

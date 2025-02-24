@@ -9,7 +9,7 @@
 
         <h1 class="text-center mb-4">Forgot Password</h1>
 
-        <form action="#" method="POST" class="w-75 mx-auto" autocomplete="off">
+        <form action="action/forgot.php" method="POST" class="w-75 mx-auto" autocomplete="off">
 
             <div class="card mb-4">
                 <div class="card-body">
