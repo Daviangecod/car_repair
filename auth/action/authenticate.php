@@ -49,7 +49,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                 saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 0, $_SERVER['HTTP_USER_AGENT']);
 
                 setFlashMessage('error', 'Invalid Credentials');
-                redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials']);
+                redirect(baseUrl('auth/login.php'), ['error' => 'invalid_credentials', 'email' => $email]);
             }
 
             if($user['active'] == 0) {
@@ -57,7 +57,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
                 saveLoginActivity($user['id'], $_SERVER['REMOTE_ADDR'], 0, $_SERVER['HTTP_USER_AGENT']);
 
                 setFlashMessage('info', 'Your account has been deactivated, contact the administrators');
-                redirect(baseUrl('auth/login.php'), ['error' => 'deactivated_account']);
+                redirect(baseUrl('auth/login.php'), ['error' => 'deactivated_account', 'email' => $email]);
             }
 
                 $_SESSION['loginId'] = $user['id'];
@@ -121,6 +121,6 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
 
         //dump($e->getMessage()); exit;
         setFlashMessage('error', 'Unexpected Error');
-        redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error']);
+        redirect(baseUrl('auth/login.php'), ['error' => 'unexpected_error', 'email' => $email]);
     }
 }

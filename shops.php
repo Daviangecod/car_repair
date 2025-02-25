@@ -28,7 +28,7 @@
     $searchQuery = isset($_GET['search']) ? mysqli_real_escape_string($connection, $_GET['search']) : '';
 
     // Base query for counting total records (with search condition)
-    $totalQuery = "SELECT COUNT(*) AS total FROM shops WHERE name LIKE '%$searchQuery%'"; // Assuming you're searching by 'name'
+    $totalQuery = "SELECT COUNT(*) AS total FROM shops WHERE location LIKE '%$searchQuery%'"; // Searching by 'location'
     $totalResult = mysqli_query($connection, $totalQuery);
     $totalRow = mysqli_fetch_assoc($totalResult);
     $totalRecords = $totalRow['total'];
@@ -39,7 +39,7 @@
     // Get the shops with search condition applied
     $shops = [];
 
-    $query = "SELECT * FROM shops WHERE name LIKE '%$searchQuery%' AND visibility = 1 ORDER BY id DESC LIMIT $offset, $limit"; 
+    $query = "SELECT * FROM shops WHERE location LIKE '%$searchQuery%' AND visibility = 1 ORDER BY id DESC LIMIT $offset, $limit"; 
     $result = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($result) > 0) {
@@ -55,7 +55,7 @@
 
         <div class="mb-5">
             <form action="<?= baseUrl('shops.php') ?>" method="GET" class="d-flex">
-                <input type="search" name="search" id="search" placeholder="Search a Mechanic Shop..." class="form-control form-control-lg" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                <input type="search" name="search" id="search" placeholder="Search by Location..." class="form-control form-control-lg" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
                 <button type="submit" class="btn btn-lg btn-theme-primary d-inline-block ms-2">Search</button>
             </form>
         </div>

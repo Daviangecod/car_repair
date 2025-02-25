@@ -14,7 +14,7 @@
 
             <div class="form-group mb-4">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Your Email Address" />
+                <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Your Email Address" value="<?= isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '' ?>" />
             </div>
 
             <div class="form-group mb-4">

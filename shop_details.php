@@ -255,6 +255,10 @@ if (isset($_GET['id'])):
                 <form action="submit_review.php" method="POST">
                     <input type="hidden" name="shop_id" value="<?= $shop['id'] ?>">
                     <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="rating" class="form-label">Rating</label>
                         <select class="form-select" id="rating" name="rating" required>
                             <option value="5">5 - Excellent</option>
@@ -270,6 +274,38 @@ if (isset($_GET['id'])):
                     </div>
                     <button type="submit" class="btn btn-theme-primary">Submit Review</button>
                 </form>
+            </div>
+        </div>
+
+        <!-- Display Reviews -->
+        <div class="card shadow-sm mb-5 rounded py-3 px-5">
+            <div class="card-header bg-white border-bottom-0 text-uppercase fw-bold fs-2">Reviews</div>
+            <div class="card-body">
+                <?php
+                $reviews = [];
+                $query = "SELECT * FROM reviews WHERE shop_id = $shopId ORDER BY created_at DESC";
+                $result = mysqli_query($connection, $query);
+
+                if ($result) {
+                    $reviews = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                }
+                ?>
+                <?php if (count($reviews) > 0): ?>
+                    <ul class="list-unstyled">
+                        <?php foreach ($reviews as $review): ?>
+                            <li class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-bold"><?= $review['rating'] ?> / 5</span>
+                                    <span class="text-muted"><?= date('F j, Y, g:i a', strtotime($review['created_at'])) ?></span>
+                                </div>
+                                <p><strong><?= $review['name'] ?></strong></p>
+                                <p><?= $review['review'] ?></p>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                <?php else: ?>
+                    <p>No reviews yet. Be the first to leave a review!</p>
+                <?php endif ?>
             </div>
         </div>
 
